@@ -36,6 +36,11 @@ startbtc <- function(rpcuser = "rbtc", rpcpassword = "$GiveItATry4Me",
 #' It calls \code{bitcoin-cli stop} \emph{via} the
 #' R function \code{system2()}.
 #'
+#' @param rpcuser \code{character}, the name of the RPC-user.
+#' @param rpcpassword \code{character}, a given (strong) password.
+#' @param conf.file \code{character}, the path and filename to the
+#' bitcoind configuration file.
+#' 
 #' @return NULL
 #' @author Bernhard Pfaff
 #' @export

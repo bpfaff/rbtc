@@ -2,3 +2,5 @@
 
 export(startbtc)
 export(stopbtc)
+exportClasses(CONRPC)
+import(methods)

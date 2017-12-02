@@ -7,6 +7,14 @@
 stopbtc(rpcuser = "rbtc", rpcpassword = "$GiveItATry4Me",
   conf.file = NULL)
 }
+\arguments{
+\item{rpcuser}{\code{character}, the name of the RPC-user.}
+
+\item{rpcpassword}{\code{character}, a given (strong) password.}
+
+\item{conf.file}{\code{character}, the path and filename to the
+bitcoind configuration file.}
+}
 \description{
 This function stops a running bitcoind process.
 It calls \code{bitcoin-cli stop} \emph{via} the
