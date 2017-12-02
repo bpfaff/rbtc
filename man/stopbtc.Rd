@@ -4,21 +4,18 @@
 \alias{stopbtc}
 \title{Stop bitcoind server process}
 \usage{
-stopbtc(rpcuser = "rbtc", rpcpassword = "$GiveItATry4Me",
-  conf.file = NULL)
+stopbtc(confbtc)
 }
 \arguments{
-\item{rpcuser}{\code{character}, the name of the RPC-user.}
-
-\item{rpcpassword}{\code{character}, a given (strong) password.}
-
-\item{conf.file}{\code{character}, the path and filename to the
-bitcoind configuration file.}
+\item{confbtc}{\code{CONRPC} object, returned from \code{conrpc()}.}
 }
 \description{
 This function stops a running bitcoind process.
 It calls \code{bitcoin-cli stop} \emph{via} the
-R function \code{system2()}.
+R function \code{system()}.
+}
+\seealso{
+startbtc, conrpc, CONRPC-class
 }
 \author{
 Bernhard Pfaff

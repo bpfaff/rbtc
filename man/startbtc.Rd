@@ -4,16 +4,10 @@
 \alias{startbtc}
 \title{Start bitcoind server process}
 \usage{
-startbtc(rpcuser = "rbtc", rpcpassword = "$GiveItATry4Me",
-  conf.file = NULL)
+startbtc(confbtc)
 }
 \arguments{
-\item{rpcuser}{\code{character}, the name of the RPC-user.}
-
-\item{rpcpassword}{\code{character}, a given (strong) password.}
-
-\item{conf.file}{\code{character}, the path and filename to the
-bitcoind configuration file.}
+\item{confbtc}{\code{CONRPC} object, returned from \code{conrpc()}.}
 }
 \value{
 \code{NULL}
@@ -24,10 +18,12 @@ It should only be called when no suitable RPC-JSON
 process is running
 }
 \details{
-The default value for \code{conf.file} is \code{NULL}.
-In this case, the bitcoind process is started with the options:
-server, rpcuser and rpcpassword. The process is started by calling
-\code{system2()}.
+The process is started by calling \code{system()}.
+Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
+\code{conf} are used in the call to \code{bitcoind}.
+}
+\seealso{
+conrpc, CONRPC-class, stopbtc
 }
 \author{
 Bernhard Pfaff
