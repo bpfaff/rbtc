@@ -4,3 +4,5 @@ NULL
 NULL
 #' @import rjson
 NULL
+#' @import httr
+NULL
