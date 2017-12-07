@@ -21,7 +21,7 @@ Projects should transition to using getblockchaininfo, getnetworkinfo, and
 getwalletinfo before upgrading to 0.16.
 }
 \seealso{
-conrpc
+Other Control RPCs: \code{\link{gethelp}}
 }
 \author{
 Bernhard Pfaff

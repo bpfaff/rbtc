@@ -17,5 +17,7 @@
 setClass("CONRPC", representation = list(
                        rpcuse = "character",
                        rpcpwd = "character",
+                       testnet = "logical",
+                       url = "character",
                        config = "character")
          )

@@ -33,9 +33,23 @@ conrpc <- function(conf.file){
         warning("'rpcpassword' not set, creating random string.\n")
         valrpcpwd <- paste0(sample(LETTERS, 12, TRUE), collapse = "")
     }
+    idx <- which(unlist(lapply(bconfl, function(x) x[1] == "testnet")))
+    if (length(idx) > 0){
+        tnet <- as.logical(as.numeric(bconfl[[idx]][2]))
+    } else {
+        warning("'testnet' not set, setting testnet to TRUE.\n")
+        tnet <- TRUE
+    }
+    if (isTRUE(tnet)){
+        curl <- "http://127.0.0.1:18332"
+    } else {
+        curl <- "http://127.0.0.1:8332"
+    }
     new("CONRPC",
         rpcuse = valrpcuse,
         rpcpwd = valrpcpwd,
+        testnet = tnet,
+        url = curl,
         config = conf.file)
 }
 #' Start bitcoind server process
@@ -63,10 +77,18 @@ startbtc <- function(confbtc){
     rpcuse <- slot(confbtc, "rpcuse")
     rpcpwd <- slot(confbtc, "rpcpwd")
     config <- slot(confbtc, "config")
-    strcmd <- paste("bitcoind -daemon -rpcuser=", rpcuse,
-                    " -rpcpassword=", rpcpwd,
-                    " -conf=", config,
-                    sep = "")
+    tnet <- slot(confbtc, "testnet")
+    if (isTRUE(tnet)){
+        strcmd <- paste("bitcoind -daemon -testnet -rpcuser=", rpcuse,
+                        " -rpcpassword=", rpcpwd,
+                        " -conf=", config,
+                        sep = "")
+    } else {
+        strcmd <- paste("bitcoind -daemon -rpcuser=", rpcuse,
+                        " -rpcpassword=", rpcpwd,
+                        " -conf=", config,
+                        sep = "")
+    }
     system(strcmd)
     NULL
 }
@@ -88,13 +110,16 @@ startbtc <- function(confbtc){
 #'
 stopbtc <- function(confbtc){
     stopifnot(class(confbtc) == "CONRPC")
-    rpcuse <- slot(confbtc, "rpcuse")
-    rpcpwd <- slot(confbtc, "rpcpwd")
-    config <- slot(confbtc, "config")
-    strcmd <- paste("bitcoin-cli -rpcuser=", rpcuse,
-                    " -rpcpassword=", rpcpwd,
-                    " -conf=", config,
-                    " stop", sep = "")
-    system(strcmd)
+    curl <- slot(confbtc, "url")
+    ans <- POST(curl,
+                authenticate(user = slot(confbtc, "rpcuse"),
+                             password = slot(confbtc, "rpcpwd"),
+                             type = "basic"),
+                body = list(jsonrpc = "1.0",
+                            id = "curltest",
+                            method = "stop",
+                            params = c()),
+                encode = "json")
+    stop_for_status(ans)
     NULL
 }
