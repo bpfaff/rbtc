@@ -88,3 +88,87 @@ getwalletinfo <- function(conobj){
     ans <- content(ans)
     ans
 }
+#' RPC-JSON API: getwalletinfo
+#'
+#' Returning information about bitcoin wallet.
+#'
+#' @param conobj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Control RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getwalletinfo
+#' @aliases getwalletinfo 
+#' @rdname getwalletinfo
+#' @export
+getwalletinfo <- function(conobj){
+    stopifnot(class(conobj) == "CONRPC")
+    ans <- POST(slot(conobj, "url"),
+                authenticate(user = slot(conobj, "rpcuse"),
+                             password = slot(conobj, "rpcpwd"),
+                             type = "basic"),
+                body = list(jsonrpc = "1.0",
+                            id = "curltest",
+                            method = "getwalletinfo",
+                            params = c()),
+                encode = "json")
+    ans <- content(ans)
+    ans
+}
+#' RPC-JSON API: getnetworkinfo
+#' 
+#' Returns an object containing various state info regarding P2P networking.
+#'
+#' @param conobj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Control RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getnetworkinfo
+#' @aliases getnetworkinfo 
+#' @rdname getnetworkinfo
+#' @export
+getnetworkinfo <- function(conobj){
+    stopifnot(class(conobj) == "CONRPC")
+    ans <- POST(slot(conobj, "url"),
+                authenticate(user = slot(conobj, "rpcuse"),
+                             password = slot(conobj, "rpcpwd"),
+                             type = "basic"),
+                body = list(jsonrpc = "1.0",
+                            id = "curltest",
+                            method = "getnetworkinfo",
+                            params = c()),
+                encode = "json")
+    ans <- content(ans)
+    ans
+}
+#' RPC-JSON API: getblockchaininfo
+#' 
+#' Returns an object containing various state info regarding blockchain processing.
+#'
+#' @param conobj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Control RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getblockchaininfo
+#' @aliases getblockchaininfo 
+#' @rdname getblockchaininfo
+#' @export
+getblockchaininfo <- function(conobj){
+    stopifnot(class(conobj) == "CONRPC")
+    ans <- POST(slot(conobj, "url"),
+                authenticate(user = slot(conobj, "rpcuse"),
+                             password = slot(conobj, "rpcpwd"),
+                             type = "basic"),
+                body = list(jsonrpc = "1.0",
+                            id = "curltest",
+                            method = "getblockchaininfo",
+                            params = c()),
+                encode = "json")
+    ans <- content(ans)
+    ans
+}
