@@ -24,6 +24,9 @@ Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
 }
 \seealso{
 conrpc, CONRPC-class, stopbtc
+
+Other bitcoind functions: \code{\link{conrpc}},
+  \code{\link{stopbtc}}
 }
 \author{
 Bernhard Pfaff

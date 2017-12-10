@@ -16,6 +16,9 @@ R function \code{system()}.
 }
 \seealso{
 startbtc, conrpc, CONRPC-class
+
+Other bitcoind functions: \code{\link{conrpc}},
+  \code{\link{startbtc}}
 }
 \author{
 Bernhard Pfaff

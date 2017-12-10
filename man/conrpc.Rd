@@ -19,6 +19,9 @@ and \code{rpcpassword}.
 }
 \seealso{
 CONRPC-class, startbtc, stopbtc
+
+Other bitcoind functions: \code{\link{startbtc}},
+  \code{\link{stopbtc}}
 }
 \author{
 Bernhard Pfaff

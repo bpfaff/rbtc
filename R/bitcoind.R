@@ -9,6 +9,7 @@
 #' @return An S4-object of class \code{CONRPC}.
 #' @seealso CONRPC-class, startbtc, stopbtc
 #' @author Bernhard Pfaff
+#' @family bitcoind functions
 #' @name conrpc
 #' @aliases conrpc 
 #' @rdname conrpc
@@ -67,6 +68,7 @@ conrpc <- function(conf.file){
 #' @seealso conrpc, CONRPC-class, stopbtc
 #' @author Bernhard Pfaff
 #' @return \code{NULL}
+#' @family bitcoind functions
 #' @name startbtc
 #' @aliases startbtc 
 #' @rdname startbtc
@@ -103,6 +105,7 @@ startbtc <- function(confbtc){
 #' @return NULL
 #' @seealso startbtc, conrpc, CONRPC-class
 #' @author Bernhard Pfaff
+#' @family bitcoind functions
 #' @name stopbtc
 #' @aliases stopbtc 
 #' @rdname stopbtc
