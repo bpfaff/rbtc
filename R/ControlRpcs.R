@@ -56,5 +56,7 @@ gethelp <- function(conobj, rpcname = ""){
                             method = "help",
                             params = list(command = rpcname)),
                 encode = "json")
-    content(ans)
+    ans <- content(ans)
+    cat(ans$result)
+    invisible(ans)
 }
