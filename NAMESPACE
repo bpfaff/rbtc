@@ -3,6 +3,7 @@
 export(conrpc)
 export(gethelp)
 export(getinfo)
+export(getwalletinfo)
 export(startbtc)
 export(stopbtc)
 exportClasses(CONRPC)

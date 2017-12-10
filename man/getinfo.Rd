@@ -24,7 +24,8 @@ getwalletinfo before upgrading to 0.16.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Control RPCs: \code{\link{gethelp}}
+Other Control RPCs: \code{\link{gethelp}},
+  \code{\link{getwalletinfo}}
 }
 \author{
 Bernhard Pfaff
