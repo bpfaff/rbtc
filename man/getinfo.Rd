@@ -20,6 +20,9 @@ WARNING: getinfo is deprecated and will be fully removed in 0.16.
 Projects should transition to using getblockchaininfo, getnetworkinfo, and
 getwalletinfo before upgrading to 0.16.
 }
+\references{
+url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+}
 \seealso{
 Other Control RPCs: \code{\link{gethelp}}
 }
