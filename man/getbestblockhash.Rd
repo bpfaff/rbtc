@@ -20,7 +20,8 @@ Returns the hash of the best (tip) block in the longest blockchain.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getblockchaininfo}}
+Other Blockchain RPCs: \code{\link{getblockchaininfo}},
+  \code{\link{getblock}}
 }
 \author{
 Bernhard Pfaff

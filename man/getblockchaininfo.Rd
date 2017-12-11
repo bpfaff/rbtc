@@ -20,7 +20,8 @@ Returns an object containing various state info regarding blockchain processing.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}}
+Other Blockchain RPCs: \code{\link{getbestblockhash}},
+  \code{\link{getblock}}
 }
 \author{
 Bernhard Pfaff

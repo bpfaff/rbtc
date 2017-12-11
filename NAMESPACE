@@ -2,6 +2,7 @@
 
 export(conrpc)
 export(getbestblockhash)
+export(getblock)
 export(getblockchaininfo)
 export(gethelp)
 export(getinfo)
