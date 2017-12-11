@@ -20,9 +20,8 @@ Returning information about bitcoin wallet.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Control RPCs: \code{\link{getblockchaininfo}},
-  \code{\link{gethelp}}, \code{\link{getinfo}},
-  \code{\link{getnetworkinfo}}
+Other Control RPCs: \code{\link{gethelp}},
+  \code{\link{getinfo}}, \code{\link{getnetworkinfo}}
 }
 \author{
 Bernhard Pfaff

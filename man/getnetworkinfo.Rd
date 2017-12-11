@@ -20,9 +20,8 @@ Returns an object containing various state info regarding P2P networking.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Control RPCs: \code{\link{getblockchaininfo}},
-  \code{\link{gethelp}}, \code{\link{getinfo}},
-  \code{\link{getwalletinfo}}
+Other Control RPCs: \code{\link{gethelp}},
+  \code{\link{getinfo}}, \code{\link{getwalletinfo}}
 }
 \author{
 Bernhard Pfaff
