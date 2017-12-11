@@ -21,6 +21,7 @@ Projects should transition to using getblockchaininfo, getnetworkinfo, and
 getwalletinfo before upgrading to 0.16.
 }
 \references{
+\url{https://bitcoin.org/en/developer-reference#getinfo},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{

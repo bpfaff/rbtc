@@ -16,6 +16,7 @@ A coerced \code{list} object from RPC-JSON API.
 Returns an object containing various state info regarding P2P networking.
 }
 \references{
+\url{https://bitcoin.org/en/developer-reference#getnetworkinfo},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{

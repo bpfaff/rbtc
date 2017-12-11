@@ -2,44 +2,28 @@
 % Please edit documentation in R/ControlRpcs.R
 \name{getwalletinfo}
 \alias{getwalletinfo}
-\alias{getwalletinfo}
 \title{RPC-JSON API: getwalletinfo}
 \usage{
-getwalletinfo(conobj)
-
 getwalletinfo(conobj)
 }
 \arguments{
 \item{conobj}{object of class \code{CONRPC}.}
-
-\item{conobj}{object of class \code{CONRPC}.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
-
 A coerced \code{list} object from RPC-JSON API.
 }
 \description{
 Returning information about bitcoin wallet.
-
-Returning information about bitcoin wallet.
 }
 \references{
-\url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
-
+\url{https://bitcoin.org/en/developer-reference#getwalletinfo},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
 Other Control RPCs: \code{\link{getblockchaininfo}},
   \code{\link{gethelp}}, \code{\link{getinfo}},
   \code{\link{getnetworkinfo}}
-
-Other Control RPCs: \code{\link{getblockchaininfo}},
-  \code{\link{gethelp}}, \code{\link{getinfo}},
-  \code{\link{getnetworkinfo}}
 }
 \author{
-Bernhard Pfaff
-
 Bernhard Pfaff
 }

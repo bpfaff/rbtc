@@ -18,6 +18,7 @@ A coerced \code{list} object from RPC-JSON API.
 Returning information about RPC functions.
 }
 \references{
+\url{https://bitcoin.org/en/developer-reference#gethelp},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{

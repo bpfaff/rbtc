@@ -16,6 +16,7 @@ A coerced \code{list} object from RPC-JSON API.
 Returns an object containing various state info regarding blockchain processing.
 }
 \references{
+\url{https://bitcoin.org/en/developer-reference#getblockchaininfo},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
