@@ -27,6 +27,7 @@ getinfo <- function(conobj){
                             method = "getinfo",
                             params = c()),
                 encode = "json")
+    stop_for_status(ans)
     content(ans)
 }
 #' RPC-JSON API: Help
@@ -56,6 +57,7 @@ gethelp <- function(conobj, rpcname = ""){
                             method = "help",
                             params = list(command = rpcname)),
                 encode = "json")
+    stop_for_status(ans)
     ans <- content(ans)
     cat(ans$result)
     invisible(ans)
@@ -85,6 +87,7 @@ getwalletinfo <- function(conobj){
                             method = "getwalletinfo",
                             params = c()),
                 encode = "json")
+    stop_for_status(ans)
     ans <- content(ans)
     ans
 }
@@ -113,6 +116,7 @@ getwalletinfo <- function(conobj){
                             method = "getwalletinfo",
                             params = c()),
                 encode = "json")
+    stop_for_status(ans)
     ans <- content(ans)
     ans
 }
@@ -141,6 +145,7 @@ getnetworkinfo <- function(conobj){
                             method = "getnetworkinfo",
                             params = c()),
                 encode = "json")
+    stop_for_status(ans)
     ans <- content(ans)
     ans
 }
@@ -169,6 +174,7 @@ getblockchaininfo <- function(conobj){
                             method = "getblockchaininfo",
                             params = c()),
                 encode = "json")
+    stop_for_status(ans)
     ans <- content(ans)
     ans
 }
