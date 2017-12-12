@@ -35,7 +35,8 @@ information about each transaction.
 }
 \seealso{
 Other Blockchain RPCs: \code{\link{getbestblockhash}},
-  \code{\link{getblockchaininfo}}
+  \code{\link{getblockchaininfo}},
+  \code{\link{getblockcount}}
 }
 \author{
 Bernhard Pfaff

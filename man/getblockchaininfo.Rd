@@ -21,7 +21,7 @@ Returns an object containing various state info regarding blockchain processing.
 }
 \seealso{
 Other Blockchain RPCs: \code{\link{getbestblockhash}},
-  \code{\link{getblock}}
+  \code{\link{getblockcount}}, \code{\link{getblock}}
 }
 \author{
 Bernhard Pfaff
