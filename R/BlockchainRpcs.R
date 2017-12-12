@@ -87,3 +87,23 @@ getblock <- function(obj, blockhash, verbosity = c("l1", "l0", "l2")){
 getblockcount <- function(obj){
     rpcpost(obj, "getblockcount")
 }
+#' RPC-JSON API: getblockhash
+#' 
+#' Returns hash of block in best-block-chain at height provided.
+#'
+#' @param obj object of class \code{CONRPC}.
+#' @param height \code{integer} the height index.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getblockhash},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getblockhash
+#' @aliases getblockhash 
+#' @rdname getblockhash
+#' @export
+getblockhash <- function(obj, height){
+    h <- as.integer(height)
+    rpcpost(obj, "getblockhash", list(height = h))
+}

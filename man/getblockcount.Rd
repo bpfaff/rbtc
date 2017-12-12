@@ -21,7 +21,8 @@ Returns the number of blocks in the longest blockchain.
 }
 \seealso{
 Other Blockchain RPCs: \code{\link{getbestblockhash}},
-  \code{\link{getblockchaininfo}}, \code{\link{getblock}}
+  \code{\link{getblockchaininfo}},
+  \code{\link{getblockhash}}, \code{\link{getblock}}
 }
 \author{
 Bernhard Pfaff

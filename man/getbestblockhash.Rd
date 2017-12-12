@@ -21,7 +21,8 @@ Returns the hash of the best (tip) block in the longest blockchain.
 }
 \seealso{
 Other Blockchain RPCs: \code{\link{getblockchaininfo}},
-  \code{\link{getblockcount}}, \code{\link{getblock}}
+  \code{\link{getblockcount}}, \code{\link{getblockhash}},
+  \code{\link{getblock}}
 }
 \author{
 Bernhard Pfaff
