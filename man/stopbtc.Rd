@@ -15,10 +15,8 @@ It calls \code{bitcoin-cli stop} \emph{via} the
 R function \code{system()}.
 }
 \seealso{
-startbtc, conrpc, CONRPC-class
-
 Other bitcoind functions: \code{\link{conrpc}},
-  \code{\link{startbtc}}
+  \code{\link{rpcpost}}, \code{\link{startbtc}}
 }
 \author{
 Bernhard Pfaff

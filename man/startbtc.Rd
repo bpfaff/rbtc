@@ -23,10 +23,8 @@ Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
 \code{conf} are used in the call to \code{bitcoind}.
 }
 \seealso{
-conrpc, CONRPC-class, stopbtc
-
 Other bitcoind functions: \code{\link{conrpc}},
-  \code{\link{stopbtc}}
+  \code{\link{rpcpost}}, \code{\link{stopbtc}}
 }
 \author{
 Bernhard Pfaff

@@ -7,7 +7,6 @@
 #' @param conf.file \code{character}, the fully qualified path.
 #'
 #' @return An S4-object of class \code{CONRPC}.
-#' @seealso CONRPC-class, startbtc, stopbtc
 #' @author Bernhard Pfaff
 #' @family bitcoind functions
 #' @name conrpc
@@ -65,7 +64,6 @@ conrpc <- function(conf.file){
 #' Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
 #' \code{conf} are used in the call to \code{bitcoind}.
 #'
-#' @seealso conrpc, CONRPC-class, stopbtc
 #' @author Bernhard Pfaff
 #' @return \code{NULL}
 #' @family bitcoind functions
@@ -103,7 +101,6 @@ startbtc <- function(confbtc){
 #' @param confbtc \code{CONRPC} object, returned from \code{conrpc()}.
 #' 
 #' @return NULL
-#' @seealso startbtc, conrpc, CONRPC-class
 #' @author Bernhard Pfaff
 #' @family bitcoind functions
 #' @name stopbtc
@@ -125,4 +122,37 @@ stopbtc <- function(confbtc){
                 encode = "json")
     stop_for_status(ans)
     NULL
+}
+#' HTTP post of RPC-JSON
+#'
+#' This function executes an RPC-JSON post.
+#'
+#' @param confbtc \code{CONRPC} object, returned from \code{conrpc()}.
+#' @param api \code{character} the name of the RPC function.
+#' @param plist \code{list} a named list object of the parameters for \code{api}
+#' 
+#' @return A \code{list} object, coerced JSON answer from RPC.
+#' @author Bernhard Pfaff
+#' @family bitcoind functions
+#' @name rpcpost
+#' @aliases rpcpost 
+#' @rdname rpcpost
+#' @export
+#'
+rpcpost <- function(conobj, api, plist = list()){
+    stopifnot(class(conobj) == "CONRPC")
+    api <- as.character(api)
+    pid <- paste("rbtc", api, sep = "-")
+    ans <- POST(slot(conobj, "url"),
+                authenticate(user = slot(conobj, "rpcuse"),
+                             password = slot(conobj, "rpcpwd"),
+                             type = "basic"),
+                body = list(jsonrpc = "1.0",
+                            id = pid,
+                            method = api,
+                            params = plist),
+                encode = "json")
+    stop_for_status(ans)
+    ans <- content(ans)
+    ans
 }
