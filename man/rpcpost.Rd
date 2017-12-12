@@ -4,14 +4,14 @@
 \alias{rpcpost}
 \title{HTTP post of RPC-JSON}
 \usage{
-rpcpost(conobj, api, plist = list())
+rpcpost(obj, api, plist = list())
 }
 \arguments{
+\item{obj}{\code{CONRPC} object, returned from \code{conrpc()}.}
+
 \item{api}{\code{character} the name of the RPC function.}
 
 \item{plist}{\code{list} a named list object of the parameters for \code{api}}
-
-\item{confbtc}{\code{CONRPC} object, returned from \code{conrpc()}.}
 }
 \value{
 A \code{list} object, coerced JSON answer from RPC.

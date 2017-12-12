@@ -4,10 +4,10 @@
 \alias{getblockchaininfo}
 \title{RPC-JSON API: getblockchaininfo}
 \usage{
-getblockchaininfo(conobj)
+getblockchaininfo(obj)
 }
 \arguments{
-\item{conobj}{object of class \code{CONRPC}.}
+\item{obj}{object of class \code{CONRPC}.}
 }
 \value{
 A coerced \code{list} object from RPC-JSON API.

@@ -4,10 +4,10 @@
 \alias{getnetworkinfo}
 \title{RPC-JSON API: getnetworkinfo}
 \usage{
-getnetworkinfo(conobj)
+getnetworkinfo(obj)
 }
 \arguments{
-\item{conobj}{object of class \code{CONRPC}.}
+\item{obj}{object of class \code{CONRPC}.}
 }
 \value{
 A coerced \code{list} object from RPC-JSON API.

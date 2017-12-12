@@ -2,7 +2,7 @@
 #' 
 #' Returns an object containing various state info regarding blockchain processing.
 #'
-#' @param conobj object of class \code{CONRPC}.
+#' @param obj object of class \code{CONRPC}.
 #'
 #' @return A coerced \code{list} object from RPC-JSON API.
 #' @family Blockchain RPCs
@@ -13,26 +13,14 @@
 #' @aliases getblockchaininfo 
 #' @rdname getblockchaininfo
 #' @export
-getblockchaininfo <- function(conobj){
-    stopifnot(class(conobj) == "CONRPC")
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "getblockchaininfo",
-                            params = c()),
-                encode = "json")
-    stop_for_status(ans)
-    ans <- content(ans)
-    ans
+getblockchaininfo <- function(obj){
+    rpcpost(obj, "getblockchaininfo")
 }
 #' RPC-JSON API: getbestblockhash
 #' 
 #' Returns the hash of the best (tip) block in the longest blockchain.
 #'
-#' @param conobj object of class \code{CONRPC}.
+#' @param obj object of class \code{CONRPC}.
 #'
 #' @return A coerced \code{list} object from RPC-JSON API.
 #' @family Blockchain RPCs
@@ -43,20 +31,8 @@ getblockchaininfo <- function(conobj){
 #' @aliases getbestblockhash 
 #' @rdname getbestblockhash
 #' @export
-getbestblockhash <- function(conobj){
-    stopifnot(class(conobj) == "CONRPC")
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "getbestblockhash",
-                            params = c()),
-                encode = "json")
-    stop_for_status(ans)
-    ans <- content(ans)
-    ans
+getbestblockhash <- function(obj){
+    rpcpost(obj, "getbestblockhash")
 }
 #' RPC-JSON API: getblock
 #' 
@@ -70,7 +46,7 @@ getbestblockhash <- function(conobj){
 #' If verbosity is 'l2', returns an object with information about block <hash> and
 #' information about each transaction. 
 #'
-#' @param conobj object of class \code{CONRPC}.
+#' @param obj object of class \code{CONRPC}.
 #' @param blockhash \code{character}, the block hash.
 #' @param verbosity \code{character}, level of returned details. 
 #'
@@ -83,24 +59,31 @@ getbestblockhash <- function(conobj){
 #' @aliases getblock 
 #' @rdname getblock
 #' @export
-getblock <- function(conobj, blockhash, verbosity = c("l1", "l0", "l2")){
-    stopifnot(class(conobj) == "CONRPC")
+getblock <- function(obj, blockhash, verbosity = c("l1", "l0", "l2")){
     bh <- as.character(blockhash)
     verbosity <- match.arg(verbosity)
     verb <- switch(verbosity,
                    l0 = 0L,
                    l1 = 1L,
                    l2 = 2L)
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "getblock",
-                            params = list(blockhash = bh, verbosity = verb)),
-                encode = "json")
-    stop_for_status(ans)
-    ans <- content(ans)
-    ans
+    pl <- list(blockhash = bh, verbosity = verb)
+    rpcpost(obj, "getblock", pl)
+}
+#' RPC-JSON API: getblockcount
+#' 
+#' Returns the number of blocks in the longest blockchain.
+#'
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getblockcount},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getblockcount
+#' @aliases getblockcount 
+#' @rdname getblockcount
+#' @export
+getblockcount <- function(obj){
+    rpcpost(obj, "getblockcount")
 }

@@ -6,7 +6,7 @@
 #' Projects should transition to using getblockchaininfo, getnetworkinfo, and
 #' getwalletinfo before upgrading to 0.16.
 #'
-#' @param conobj object of class \code{CONRPC}.
+#' @param obj object of class \code{CONRPC}.
 #'
 #' @return A coerced \code{list} object from RPC-JSON API.
 #' @family Control RPCs
@@ -17,50 +17,27 @@
 #' @aliases getinfo 
 #' @rdname getinfo
 #' @export
-getinfo <- function(conobj){
-    stopifnot(class(conobj) == "CONRPC")
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "getinfo",
-                            params = c()),
-                encode = "json")
-    stop_for_status(ans)
-    content(ans)
+getinfo <- function(obj){
+    rpcpost(obj, "getinfo")
 }
 #' RPC-JSON API: Help
 #'
 #' Returning information about RPC functions.
 #'
-#' @param conobj object of class \code{CONRPC}.
-#' @param rpcname \code{character}, name of RPC function.
+#' @param obj object of class \code{CONRPC}.
+#' @param rpc \code{character}, name of RPC function.
 #'
 #' @return A coerced \code{list} object from RPC-JSON API.
 #' @family Control RPCs
 #' @author Bernhard Pfaff
-#' @references \url{https://bitcoin.org/en/developer-reference#gethelp},
+#' @references \url{https://bitcoin.org/en/developer-reference#help},
 #' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 #' @name gethelp
 #' @aliases gethelp 
 #' @rdname gethelp
 #' @export
-gethelp <- function(conobj, rpcname = ""){
-    stopifnot(class(conobj) == "CONRPC")
-    rpcname <- as.character(rpcname)[1]
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "help",
-                            params = list(command = rpcname)),
-                encode = "json")
-    stop_for_status(ans)
-    ans <- content(ans)
+gethelp <- function(obj, rpc = ""){
+    ans <- rpcpost(obj, "help", list(command = rpc))
     cat(ans$result)
     invisible(ans)
 }
@@ -68,7 +45,7 @@ gethelp <- function(conobj, rpcname = ""){
 #'
 #' Returning information about bitcoin wallet.
 #'
-#' @param conobj object of class \code{CONRPC}.
+#' @param obj object of class \code{CONRPC}.
 #'
 #' @return A coerced \code{list} object from RPC-JSON API.
 #' @family Control RPCs
@@ -79,26 +56,14 @@ gethelp <- function(conobj, rpcname = ""){
 #' @aliases getwalletinfo 
 #' @rdname getwalletinfo
 #' @export
-getwalletinfo <- function(conobj){
-    stopifnot(class(conobj) == "CONRPC")
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "getwalletinfo",
-                            params = c()),
-                encode = "json")
-    stop_for_status(ans)
-    ans <- content(ans)
-    ans
+getwalletinfo <- function(obj){
+    rpcpost(obj, "getwalletinfo")
 }
 #' RPC-JSON API: getnetworkinfo
 #' 
 #' Returns an object containing various state info regarding P2P networking.
 #'
-#' @param conobj object of class \code{CONRPC}.
+#' @param obj object of class \code{CONRPC}.
 #'
 #' @return A coerced \code{list} object from RPC-JSON API.
 #' @family Control RPCs
@@ -109,18 +74,6 @@ getwalletinfo <- function(conobj){
 #' @aliases getnetworkinfo 
 #' @rdname getnetworkinfo
 #' @export
-getnetworkinfo <- function(conobj){
-    stopifnot(class(conobj) == "CONRPC")
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
-                             type = "basic"),
-                body = list(jsonrpc = "1.0",
-                            id = "curltest",
-                            method = "getnetworkinfo",
-                            params = c()),
-                encode = "json")
-    stop_for_status(ans)
-    ans <- content(ans)
-    ans
+getnetworkinfo <- function(obj){
+    rpcpost(obj, "getnetworkinfo")
 }

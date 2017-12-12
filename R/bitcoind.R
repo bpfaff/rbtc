@@ -127,7 +127,7 @@ stopbtc <- function(confbtc){
 #'
 #' This function executes an RPC-JSON post.
 #'
-#' @param confbtc \code{CONRPC} object, returned from \code{conrpc()}.
+#' @param obj \code{CONRPC} object, returned from \code{conrpc()}.
 #' @param api \code{character} the name of the RPC function.
 #' @param plist \code{list} a named list object of the parameters for \code{api}
 #' 
@@ -139,20 +139,19 @@ stopbtc <- function(confbtc){
 #' @rdname rpcpost
 #' @export
 #'
-rpcpost <- function(conobj, api, plist = list()){
-    stopifnot(class(conobj) == "CONRPC")
+rpcpost <- function(obj, api, plist = list()){
+    stopifnot(class(obj) == "CONRPC")
     api <- as.character(api)
     pid <- paste("rbtc", api, sep = "-")
-    ans <- POST(slot(conobj, "url"),
-                authenticate(user = slot(conobj, "rpcuse"),
-                             password = slot(conobj, "rpcpwd"),
+    ans <- POST(slot(obj, "url"),
+                authenticate(user = slot(obj, "rpcuse"),
+                             password = slot(obj, "rpcpwd"),
                              type = "basic"),
                 body = list(jsonrpc = "1.0",
                             id = pid,
                             method = api,
                             params = plist),
                 encode = "json")
-    stop_for_status(ans)
     ans <- content(ans)
     ans
 }

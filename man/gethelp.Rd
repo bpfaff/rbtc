@@ -4,12 +4,12 @@
 \alias{gethelp}
 \title{RPC-JSON API: Help}
 \usage{
-gethelp(conobj, rpcname = "")
+gethelp(obj, rpc = "")
 }
 \arguments{
-\item{conobj}{object of class \code{CONRPC}.}
+\item{obj}{object of class \code{CONRPC}.}
 
-\item{rpcname}{\code{character}, name of RPC function.}
+\item{rpc}{\code{character}, name of RPC function.}
 }
 \value{
 A coerced \code{list} object from RPC-JSON API.
@@ -18,7 +18,7 @@ A coerced \code{list} object from RPC-JSON API.
 Returning information about RPC functions.
 }
 \references{
-\url{https://bitcoin.org/en/developer-reference#gethelp},
+\url{https://bitcoin.org/en/developer-reference#help},
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{

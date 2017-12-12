@@ -4,10 +4,10 @@
 \alias{getblock}
 \title{RPC-JSON API: getblock}
 \usage{
-getblock(conobj, blockhash, verbosity = c("l1", "l0", "l2"))
+getblock(obj, blockhash, verbosity = c("l1", "l0", "l2"))
 }
 \arguments{
-\item{conobj}{object of class \code{CONRPC}.}
+\item{obj}{object of class \code{CONRPC}.}
 
 \item{blockhash}{\code{character}, the block hash.}
 
