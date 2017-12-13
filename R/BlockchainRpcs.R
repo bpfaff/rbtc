@@ -107,3 +107,22 @@ getblockhash <- function(obj, height){
     h <- as.integer(height)
     rpcpost(obj, "getblockhash", list(height = h))
 }
+#' RPC-JSON API: getchaintips
+#' 
+#' Return information about all known tips in the block tree,
+#' including the main chain as well as orphaned branches.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getchaintips},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getchaintips
+#' @aliases getchaintips 
+#' @rdname getchaintips
+#' @export
+getchaintips <- function(obj){
+    rpcpost(obj, "getchaintips") 
+}
