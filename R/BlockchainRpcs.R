@@ -144,3 +144,22 @@ getchaintips <- function(obj){
 getdifficulty <- function(obj){
     rpcpost(obj, "getdifficulty")
 }
+#' RPC-JSON API: getmempoolinfo
+#' 
+#' Returns details on the active state of the TX memory pool.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getmempoolinfo},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getmempoolinfo
+#' @aliases getmempoolinfo 
+#' @rdname getmempoolinfo
+#' @export
+getmempoolinfo <- function(obj){
+    rpcpost(obj, "getmempoolinfo")
+}
+
