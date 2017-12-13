@@ -183,7 +183,7 @@ gettxoutsetinfo <- function(obj){
 }
 #' RPC-JSON API: pruneblockchain
 #' 
-#' Pruning of blockcahin. 
+#' Pruning of blockchain. 
 #'
 #' @param obj object of class \code{CONRPC}.
 #' @param height \code{integer} The block height to prune up to.
@@ -205,3 +205,33 @@ pruneblockchain <- function(obj, height){
     rpcpost(obj, "pruneblockchain",
             list(height = height))
 }
+#' RPC-JSON API: getblockheader
+#' 
+#' Returns the block header for a given hash string. 
+#'
+#' @param obj object of class \code{CONRPC}.
+#' @param hash \code{charcater} the block hash.
+#' @param verbose \code{logical} \code{TRUE} for a json object,
+#' \code{FALSE} for the hex encoded data.
+#'
+#' @section Details:
+#' If verbose is false, returns a string that is serialized,
+#' hex-encoded data for blockheader 'hash'. If verbose is true,
+#' returns an Object with information about blockheader <hash>.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getblockheader},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getblockheader
+#' @aliases getblockheader 
+#' @rdname getblockheader
+#' @export
+getblockheader <- function(obj, hash, verbose = TRUE){
+    hash <- as.character(hash)
+    verbose <- as.logical(verbose)
+    rpcpost(obj, "getblockheader",
+            list(hash, verbose))
+}
+
