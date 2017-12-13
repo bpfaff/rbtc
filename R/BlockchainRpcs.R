@@ -181,4 +181,27 @@ getmempoolinfo <- function(obj){
 gettxoutsetinfo <- function(obj){
     rpcpost(obj, "gettxoutsetinfo")
 }
-
+#' RPC-JSON API: pruneblockchain
+#' 
+#' Pruning of blockcahin. 
+#'
+#' @param obj object of class \code{CONRPC}.
+#' @param height \code{integer} The block height to prune up to.
+#'
+#' @section Details:
+#' May be set to a discrete height, or a unix timestamp to prune blocks whose block time
+#' is at least 2 hours older than the provided timestamp.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#pruneblockchain},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name pruneblockchain
+#' @aliases pruneblockchain 
+#' @rdname pruneblockchain
+#' @export
+pruneblockchain <- function(obj, height){
+    rpcpost(obj, "pruneblockchain",
+            list(height = height))
+}
