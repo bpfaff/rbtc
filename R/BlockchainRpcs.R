@@ -126,3 +126,21 @@ getblockhash <- function(obj, height){
 getchaintips <- function(obj){
     rpcpost(obj, "getchaintips") 
 }
+#' RPC-JSON API: getdifficulty
+#' 
+#' Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getdifficulty},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getdifficulty
+#' @aliases getdifficulty 
+#' @rdname getdifficulty
+#' @export
+getdifficulty <- function(obj){
+    rpcpost(obj, "getdifficulty")
+}
