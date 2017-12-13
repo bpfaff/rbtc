@@ -24,7 +24,12 @@ Returns hash of block in best-block-chain at height provided.
 \seealso{
 Other Blockchain RPCs: \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
-  \code{\link{getblockcount}}, \code{\link{getblock}}
+  \code{\link{getblockcount}},
+  \code{\link{getblockheader}}, \code{\link{getblock}},
+  \code{\link{getchaintips}}, \code{\link{getdifficulty}},
+  \code{\link{getmempoolinfo}},
+  \code{\link{gettxoutsetinfo}},
+  \code{\link{pruneblockchain}}
 }
 \author{
 Bernhard Pfaff

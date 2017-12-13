@@ -124,7 +124,7 @@ getblockhash <- function(obj, height){
 #' @rdname getchaintips
 #' @export
 getchaintips <- function(obj){
-    rpcpost(obj, "getchaintips") 
+    rpcpost(obj, "getchaintips")
 }
 #' RPC-JSON API: getdifficulty
 #' 
@@ -234,4 +234,3 @@ getblockheader <- function(obj, hash, verbose = TRUE){
     rpcpost(obj, "getblockheader",
             list(hash, verbose))
 }
-
