@@ -162,4 +162,23 @@ getdifficulty <- function(obj){
 getmempoolinfo <- function(obj){
     rpcpost(obj, "getmempoolinfo")
 }
+#' RPC-JSON API: gettxoutsetinfo
+#' 
+#' Returns statistics about the unspent transaction output set.
+#' Note this call may take some time.
+#'  
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#gettxoutsetinfo},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name gettxoutsetinfo
+#' @aliases gettxoutsetinfo 
+#' @rdname gettxoutsetinfo
+#' @export
+gettxoutsetinfo <- function(obj){
+    rpcpost(obj, "gettxoutsetinfo")
+}
 
