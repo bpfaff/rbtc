@@ -210,7 +210,7 @@ pruneblockchain <- function(obj, height){
 #' Returns the block header for a given hash string. 
 #'
 #' @param obj object of class \code{CONRPC}.
-#' @param hash \code{charcater} the block hash.
+#' @param hash \code{character} the block hash.
 #' @param verbose \code{logical} \code{TRUE} for a json object,
 #' \code{FALSE} for the hex encoded data.
 #'
@@ -233,4 +233,36 @@ getblockheader <- function(obj, hash, verbose = TRUE){
     verbose <- as.logical(verbose)
     rpcpost(obj, "getblockheader",
             list(hash, verbose))
+}
+#' RPC-JSON API: getchaintxstats
+#'
+#' Compute statistics about the total number and
+#' rate of transactions in the chain.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param nblocks \code{integer} optional, size of the window in
+#' number of blocks (default: one month).
+#' @param blockhash \code{character} optional, the hash of the block
+#' that ends the window.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getchaintxstats},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getchaintxstats
+#' @aliases getchaintxstats 
+#' @rdname getchaintxstats
+#' @export
+getchaintxstats <- function(obj, nblocks = NULL, blockhash = NULL){
+    if (!is.null(nblocks)){
+        rpcpost(obj, "getchaintxstats",
+                list(nblocks = nblocks))        
+    } else if (!is.null(blockhash)){
+        p <- as.character(blockhash)
+        rpcpost(obj, "getchaintxstats",
+                list("blockhash" = blockhash))        
+    } else {
+        rpcpost(obj, "getchaintxstats")
+    }
 }
