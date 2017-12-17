@@ -266,3 +266,27 @@ getchaintxstats <- function(obj, nblocks = NULL, blockhash = NULL){
         rpcpost(obj, "getchaintxstats")
     }
 }
+
+#' RPC-JSON API: preciousblock
+#'
+#' Treats a block as if it were received before others with the same work.
+#' A can override the effect of an earlier one. The effects of preciousblock
+#' are not retained across restarts. 
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param blockhash \code{character}, the hash of the block to mark as precious.
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#preciousblock},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name preciousblock
+#' @aliases preciousblock 
+#' @rdname preciousblock
+#' @export
+preciousblock <- function(obj, blockhash){
+    bh <- as.character(blockhash)
+    rpcpost(obj, "preciousblock",
+            list("blockhash" = bh))
+}
