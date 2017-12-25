@@ -37,9 +37,7 @@ getinfo <- function(obj){
 #' @rdname gethelp
 #' @export
 gethelp <- function(obj, rpc = ""){
-    ans <- rpcpost(obj, "help", list(command = rpc))
-    cat(ans$result)
-    invisible(ans)
+    rpcpost(obj, "help", list(command = rpc))
 }
 #' RPC-JSON API: getwalletinfo
 #'
