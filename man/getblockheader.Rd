@@ -9,7 +9,7 @@ getblockheader(obj, hash, verbose = TRUE)
 \arguments{
 \item{obj}{object of class \code{CONRPC}.}
 
-\item{hash}{\code{charcater} the block hash.}
+\item{hash}{\code{character} the block hash.}
 
 \item{verbose}{\code{logical} \code{TRUE} for a json object,
 \code{FALSE} for the hex encoded data.}
@@ -36,9 +36,12 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblock}}, \code{\link{getchaintips}},
+  \code{\link{getchaintxstats}},
   \code{\link{getdifficulty}},
+  \code{\link{getmempoolentry}},
   \code{\link{getmempoolinfo}},
   \code{\link{gettxoutsetinfo}},
+  \code{\link{preciousblock}},
   \code{\link{pruneblockchain}}
 }
 \author{

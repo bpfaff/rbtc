@@ -24,8 +24,12 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
-  \code{\link{getchaintips}}, \code{\link{getmempoolinfo}},
+  \code{\link{getchaintips}},
+  \code{\link{getchaintxstats}},
+  \code{\link{getmempoolentry}},
+  \code{\link{getmempoolinfo}},
   \code{\link{gettxoutsetinfo}},
+  \code{\link{preciousblock}},
   \code{\link{pruneblockchain}}
 }
 \author{
