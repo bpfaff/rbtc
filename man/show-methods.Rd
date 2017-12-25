@@ -4,12 +4,13 @@
 \name{show}
 \alias{show}
 \alias{show,ANSRPC-method}
-\title{show-methods
-
-Defined \code{show}-methods for S4-classes.}
+\title{show-methods}
 \usage{
 \S4method{show}{ANSRPC}(object)
 }
 \arguments{
 \item{object}{a S4-class object.}
+}
+\description{
+Defined \code{show}-methods for S4-classes.
 }
