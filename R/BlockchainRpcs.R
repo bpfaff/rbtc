@@ -383,3 +383,33 @@ getrawmempool <- function(obj, verbose = TRUE){
     rpcpost(obj, "getrawmempool",
             list(verbose))
 }
+#' RPC-JSON API: gettxout
+#'
+#' Returns details about an unspent transaction output.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param txid \code{charcater} the transaction id.
+#' @param n \code{integer} vout number.
+#' @param incmempool \code{logical} whether to include the mempool (default \code{TRUE}).
+#'
+#' @details
+#' Note that an unspent output that is spent in the mempool won't appear.
+#' 
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#gettxout},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name gettxout
+#' @aliases gettxout
+#' @rdname gettxout
+#' @export
+gettxout <- function(obj, txid, n, incmempool = TRUE){
+    txid <- as.character(txid)
+    n <- as.integer(n)
+    incmempool <- as.logical(incmempool)
+    rpcpost(obj, "gettxout",
+            list(txid = txid,
+                 n = n,
+                 include_mempool = incmempool))
+}
