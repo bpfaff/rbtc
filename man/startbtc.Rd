@@ -25,6 +25,7 @@ Hereby, the options: \code{rpcuser}, \code{rpcpassword} and
 \seealso{
 Other bitcoind functions: \code{\link{ANSRPC-class}},
   \code{\link{CONRPC-class}},
+  \code{\link{CharacterOrList-class}},
   \code{\link{NullOrCharacter-class}},
   \code{\link{NullOrInteger-class}}, \code{\link{conrpc}},
   \code{\link{rpcpost}}, \code{\link{stopbtc}}

@@ -22,6 +22,7 @@ This function executes an RPC-JSON post.
 \seealso{
 Other bitcoind functions: \code{\link{ANSRPC-class}},
   \code{\link{CONRPC-class}},
+  \code{\link{CharacterOrList-class}},
   \code{\link{NullOrCharacter-class}},
   \code{\link{NullOrInteger-class}}, \code{\link{conrpc}},
   \code{\link{startbtc}}, \code{\link{stopbtc}}
