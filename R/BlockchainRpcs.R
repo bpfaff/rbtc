@@ -335,3 +335,27 @@ getmempoolancestors <- function(obj, txid, verbose = FALSE){
             list(txid = txid,
                  verbose = verbose))
 }
+#' RPC-JSON API: getmempooldescendants
+#'
+#' If txid is in the mempool, returns all in-mempool descendants.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param txid \code{character}, the transaction id (must be in mempool).
+#' @param verbose \code{logical}, \code{TrueTRUE} for a json object,
+#' \code{FALSE} for array of transaction ids (default).
+#' 
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getmempooldescendants},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getmempooldescendants
+#' @aliases getmempooldescendants
+#' @rdname getmempooldescendants
+#' @export
+getmempooldescendants <- function(obj, txid, verbose = FALSE){
+    txid <- as.character(txid)
+    rpcpost(obj, "getmempooldescendants",
+            list(txid = txid,
+                 verbose = verbose))
+}
