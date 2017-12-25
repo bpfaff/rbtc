@@ -37,7 +37,8 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
   \code{\link{getmempoolinfo}},
   \code{\link{getrawmempool}}, \code{\link{gettxoutproof}},
   \code{\link{gettxoutsetinfo}}, \code{\link{gettxout}},
-  \code{\link{pruneblockchain}}, \code{\link{verifychain}}
+  \code{\link{pruneblockchain}}, \code{\link{verifychain}},
+  \code{\link{verifytxoutproof}}
 }
 \author{
 Bernhard Pfaff
