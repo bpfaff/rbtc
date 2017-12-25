@@ -28,3 +28,10 @@ setClass("CONRPC", representation = list(
 #' @export
 setClassUnion(name = "NullOrCharacter",
               members = c("NULL", "character"))
+#' @title S4 Class Union NULL or integer
+#' 
+#' @description
+#' S4-class union of \code{NULL} or \code{integer}.
+#' @export
+setClassUnion(name = "NullOrInteger",
+              members = c("NULL", "integer"))
