@@ -11,9 +11,8 @@
 #' @name CONRPC 
 #' @rdname CONRPC-class
 #' @aliases CONRPC-class
-#' @exportClass CONRPC
+#' @export
 #' @author Bernhard Pfaff
-#'
 setClass("CONRPC", representation = list(
                        rpcuse = "character",
                        rpcpwd = "character",
@@ -35,3 +34,26 @@ setClassUnion(name = "NullOrCharacter",
 #' @export
 setClassUnion(name = "NullOrInteger",
               members = c("NULL", "integer"))
+#' The ANSRPC class
+#'
+#' This class definition is employed to cast the JSON-objects
+#' returned by API-calls to bitcoind.
+#'
+#' @slot rpcname \code{character} the name of the API.
+#' @slot result \code{list} the output/result of the API.
+#' @slot ecode \code{NullOrInteger} the error code,
+#' in case of no error \code{NULL}.
+#' @slot emessage \code{NullOrIntegerCharacter} the error message,
+#' in case of no error \code{NULL}.
+#' @slot id \code{character} identifier to API-call.
+#' 
+#' @name ANSRPC-class
+#' @rdname ANSRPC-class
+#' @export
+setClass("ANSRPC", representation = list(
+                       rpcname = "character",
+                       result = "list",
+                       ecode = "NullOrInteger",
+                       emessage = "NullOrCharacter",
+                       id = "character")
+         )
