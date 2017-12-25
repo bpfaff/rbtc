@@ -68,6 +68,12 @@ setClass("ANSRPC", representation = list(
                        emessage = "NullOrCharacter",
                        id = "character")
          )
+#' @title show-methods
+#'
+#' Defined \code{show}-methods for S4-classes.
+#'
+#' @param object a S4-class object.
+#' 
 #' @name show
 #' @aliases show,ANSRPC-method
 #' @docType methods
@@ -83,7 +89,8 @@ setMethod("show", signature = "ANSRPC",
                       cat(ans)
                   }
               } else {
-                  cat(paste("The API:", object@rpcname, "returned the following error:\n"))
+                  cat(paste("The API:", object@rpcname,
+                            "returned the following error:\n"))
                   cat(paste("Error code:", object@ecode, "\n"))
                   cat(paste("Error codemessage:\n", object@emessage, "\n"))
               }
