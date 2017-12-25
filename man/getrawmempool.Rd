@@ -40,7 +40,7 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
   \code{\link{gettxoutproof}},
   \code{\link{gettxoutsetinfo}}, \code{\link{gettxout}},
   \code{\link{preciousblock}},
-  \code{\link{pruneblockchain}}
+  \code{\link{pruneblockchain}}, \code{\link{verifychain}}
 }
 \author{
 Bernhard Pfaff
