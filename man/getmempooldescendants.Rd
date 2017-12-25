@@ -35,6 +35,7 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
   \code{\link{getmempoolancestors}},
   \code{\link{getmempoolentry}},
   \code{\link{getmempoolinfo}},
+  \code{\link{getrawmempool}},
   \code{\link{gettxoutsetinfo}},
   \code{\link{preciousblock}},
   \code{\link{pruneblockchain}}
