@@ -413,3 +413,42 @@ gettxout <- function(obj, txid, n, incmempool = TRUE){
                  n = n,
                  include_mempool = incmempool))
 }
+#' RPC-JSON API: gettxoutproof
+#'
+#' Returns a hex-encoded proof that "txid" was included in a block.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param txids \code{charcater} a json array of txids to filter.
+#' @param blockhash \code{integer} looks for txid in the block with this hash,
+#' (optional, default \code{NULL}).
+#'
+#' @details
+#' NOTE: By default this function only works sometimes. This is when there is an
+#' unspent output in the utxo for this transaction. To make it always work,
+#' you need to maintain a transaction index, using the -txindex command line
+#' option or specify the block in which the transaction is included manually
+#' (by blockhash).
+#' 
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#gettxoutproof},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name gettxoutproof
+#' @aliases gettxoutproof
+#' @rdname gettxoutproof
+#' @export
+gettxoutproof <- function(obj, txids, blockhash = NULL){
+    txids <- as.character(txids)
+    txids <- matrix(txids, ncol = 1)
+    if (is.null(blockhash)){
+        ans <- rpcpost(obj, "gettxoutproof",
+                       list(txids = as.list(txids)))
+    } else {
+        bh <- as.integer(blockhash)
+        ans <- rpcpost(obj, "gettxoutproof",
+                       list(txids = as.list(txids),
+                            blockhash = bh))
+    }
+    ans
+}
