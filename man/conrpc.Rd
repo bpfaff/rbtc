@@ -18,7 +18,10 @@ file \code{bitcoin.conf} with respect to the options  \code{rpcuser}
 and \code{rpcpassword}.
 }
 \seealso{
-Other bitcoind functions: \code{\link{rpcpost}},
+Other bitcoind functions: \code{\link{ANSRPC-class}},
+  \code{\link{CONRPC-class}},
+  \code{\link{NullOrCharacter-class}},
+  \code{\link{NullOrInteger-class}}, \code{\link{rpcpost}},
   \code{\link{startbtc}}, \code{\link{stopbtc}}
 }
 \author{

@@ -7,10 +7,9 @@
 #' \code{bitcoin.conf} (slot \code{config}) is required for starting
 #' and stopping \code{bitcoind} as daemon. 
 #'
-#' @seealso conrpc, startbtc, stopbtc
-#' @name CONRPC 
+#' @family bitcoind functions
+#' @name CONRPC-class 
 #' @rdname CONRPC-class
-#' @aliases CONRPC-class
 #' @export
 #' @author Bernhard Pfaff
 setClass("CONRPC", representation = list(
@@ -24,6 +23,7 @@ setClass("CONRPC", representation = list(
 #' 
 #' @description
 #' S4-class union of \code{NULL} or \code{character}.
+#' @family bitcoind functions
 #' @export
 setClassUnion(name = "NullOrCharacter",
               members = c("NULL", "character"))
@@ -31,6 +31,7 @@ setClassUnion(name = "NullOrCharacter",
 #' 
 #' @description
 #' S4-class union of \code{NULL} or \code{integer}.
+#' @family bitcoind functions
 #' @export
 setClassUnion(name = "NullOrInteger",
               members = c("NULL", "integer"))
@@ -47,6 +48,7 @@ setClassUnion(name = "NullOrInteger",
 #' in case of no error \code{NULL}.
 #' @slot id \code{character} identifier to API-call.
 #' 
+#' @family bitcoind functions
 #' @name ANSRPC-class
 #' @rdname ANSRPC-class
 #' @export

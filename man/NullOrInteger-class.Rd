@@ -7,3 +7,10 @@
 \description{
 S4-class union of \code{NULL} or \code{integer}.
 }
+\seealso{
+Other bitcoind functions: \code{\link{ANSRPC-class}},
+  \code{\link{CONRPC-class}},
+  \code{\link{NullOrCharacter-class}},
+  \code{\link{conrpc}}, \code{\link{rpcpost}},
+  \code{\link{startbtc}}, \code{\link{stopbtc}}
+}
