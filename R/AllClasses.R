@@ -68,3 +68,23 @@ setClass("ANSRPC", representation = list(
                        emessage = "NullOrCharacter",
                        id = "character")
          )
+#' @name show
+#' @aliases show,ANSRPC-method
+#' @docType methods
+#' @rdname show-methods
+setMethod("show", signature = "ANSRPC",
+          definition = function(object){
+              if (is.null(slot(object, "ecode")) &&
+                  is.null(slot(object, "emessage"))){
+                  ans <- slot(object, "result")
+                  if (is.list(ans)){
+                      print(ans)
+                  } else {
+                      cat(ans)
+                  }
+              } else {
+                  cat(paste("The API:", object@rpcname, "returned the following error:\n"))
+                  cat(paste("Error code:", object@ecode, "\n"))
+                  cat(paste("Error codemessage:\n", object@emessage, "\n"))
+              }
+          })
