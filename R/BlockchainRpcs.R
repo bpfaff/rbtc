@@ -452,3 +452,42 @@ gettxoutproof <- function(obj, txids, blockhash = NULL){
     }
     ans
 }
+#' RPC-JSON API: verifychain
+#'
+#' Verifies blockchain database.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param checklevel \code{integer} (optional, 0-4, default=3),
+#' how thorough the block verification is.a json array of txids to filter.
+#' @param nblocks \code{integer} (optional, default=6, 0=all),
+#' the number of blocks to check.
+#' 
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#verifychain},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name verifychain
+#' @aliases verifychain
+#' @rdname verifychain
+#' @export
+verifychain <- function(obj, checklevel = NULL, nblocks =  NULL){
+    if (!is.null(checklevel) && is.null(nblocks)){
+        ans <- rpcpost(obj, "verifychain",
+                       list(checklevel = checklevel))
+    }
+    if (is.null(checklevel) && !is.null(nblocks)){
+        ans <- rpcpost(obj, "verifychain",
+                       list(nblocks = nblocks))
+    }
+    if (!is.null(checklevel) && !is.null(nblocks)){
+        ans <- rpcpost(obj, "verifychain",
+                       list(checklevel = checklevel,
+                            nblocks = nblocks))
+    }
+    if (is.null(checklevel) && is.null(nblocks)){
+        ans <- rpcpost(obj, "verifychain",
+                       list())
+    }
+    ans
+}
