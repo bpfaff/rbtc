@@ -266,7 +266,6 @@ getchaintxstats <- function(obj, nblocks = NULL, blockhash = NULL){
         rpcpost(obj, "getchaintxstats")
     }
 }
-
 #' RPC-JSON API: preciousblock
 #'
 #' Treats a block as if it were received before others with the same work.
@@ -289,4 +288,25 @@ preciousblock <- function(obj, blockhash){
     bh <- as.character(blockhash)
     rpcpost(obj, "preciousblock",
             list("blockhash" = bh))
+}
+#' RPC-JSON API: getmempoolentry
+#'
+#' Returns mempool data for given transaction.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param txid \code{character}, the transaction id (must be in mempool).
+#'
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getmempoolentry},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getmempoolentry
+#' @aliases getmempoolentry 
+#' @rdname getmempoolentry
+#' @export
+getmempoolentry <- function(obj, txid){
+    txid <- as.character(txid)
+    rpcpost(obj, "getmempoolentry",
+            list(txid))
 }
