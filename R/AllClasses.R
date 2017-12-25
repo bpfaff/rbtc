@@ -21,3 +21,10 @@ setClass("CONRPC", representation = list(
                        url = "character",
                        config = "character")
          )
+#' @title S4 Class Union NULL or character
+#' 
+#' @description
+#' S4-class union of \code{NULL} or \code{character}.
+#' @export
+setClassUnion(name = "NullOrCharacter",
+              members = c("NULL", "character"))
