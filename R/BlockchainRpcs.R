@@ -258,7 +258,7 @@ getchaintxstats <- function(obj, nblocks = NULL, blockhash = NULL){
     if (!is.null(nblocks)){
         p <- as.integer(nblocks)
         rpcpost(obj, "getchaintxstats",
-                list(nblocks = p))      
+                list(nblocks = p))
     } else if (!is.null(blockhash)){
         p <- as.character(blockhash)
         rpcpost(obj, "getchaintxstats",
