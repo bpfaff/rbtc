@@ -70,7 +70,7 @@ setClass("ANSRPC", representation = list(
          )
 #' @title show-methods
 #'
-#' Defined \code{show}-methods for S4-classes.
+#' @description Defined \code{show}-methods for S4-classes.
 #'
 #' @param object a S4-class object.
 #' 
