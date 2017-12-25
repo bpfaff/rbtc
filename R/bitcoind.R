@@ -153,5 +153,12 @@ rpcpost <- function(obj, api, plist = list()){
                             params = plist),
                 encode = "json")
     ans <- content(ans)
-    ans
+    out <- new("ANSRPC",
+               rpcname = api,
+               id = pid,
+               result = ans$result,
+               ecode = ans[["error"]][["code"]],
+               emessage = ans[["error"]][["message"]]
+               )
+    out
 }
