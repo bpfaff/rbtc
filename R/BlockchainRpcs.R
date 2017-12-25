@@ -491,3 +491,27 @@ verifychain <- function(obj, checklevel = NULL, nblocks =  NULL){
     }
     ans
 }
+#' RPC-JSON API: verifytxoutproof
+#'
+#' Verifies that a proof points to a transaction in a block,
+#' returning the transaction it commits to and throwing an
+#' RPC error if the block is not in our best chain.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param proof \code{character} the hex-encoded proof generated
+#' by gettxoutproof.
+#' 
+#' @return A coerced \code{list} object from RPC-JSON API.
+#' @family Blockchain RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#verifytxoutproof},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name verifytxoutproof
+#' @aliases verifytxoutproof
+#' @rdname verifytxoutproof
+#' @export
+verifytxoutproof <- function(obj, proof){
+    proof <- as.character(proof)
+    rpcpost(obj, "verifytxoutproof",
+            list(proof))
+}
