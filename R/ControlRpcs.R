@@ -57,21 +57,3 @@ gethelp <- function(obj, rpc = ""){
 getwalletinfo <- function(obj){
     rpcpost(obj, "getwalletinfo")
 }
-#' RPC-JSON API: getnetworkinfo
-#' 
-#' Returns an object containing various state info regarding P2P networking.
-#'
-#' @param obj object of class \code{CONRPC}.
-#'
-#' @return A S4-object of class \code{ANSRPC}.
-#' @family Control RPCs
-#' @author Bernhard Pfaff
-#' @references \url{https://bitcoin.org/en/developer-reference#getnetworkinfo},
-#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
-#' @name getnetworkinfo
-#' @aliases getnetworkinfo 
-#' @rdname getnetworkinfo
-#' @export
-getnetworkinfo <- function(obj){
-    rpcpost(obj, "getnetworkinfo")
-}
