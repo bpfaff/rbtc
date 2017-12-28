@@ -26,7 +26,7 @@ getwalletinfo before upgrading to 0.16.
 }
 \seealso{
 Other Control RPCs: \code{\link{gethelp}},
-  \code{\link{getnetworkinfo}}, \code{\link{getwalletinfo}}
+  \code{\link{getwalletinfo}}
 }
 \author{
 Bernhard Pfaff

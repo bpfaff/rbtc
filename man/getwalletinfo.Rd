@@ -21,7 +21,7 @@ Returning information about bitcoin wallet.
 }
 \seealso{
 Other Control RPCs: \code{\link{gethelp}},
-  \code{\link{getinfo}}, \code{\link{getnetworkinfo}}
+  \code{\link{getinfo}}
 }
 \author{
 Bernhard Pfaff

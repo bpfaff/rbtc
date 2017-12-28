@@ -23,7 +23,7 @@ Returning information about RPC functions.
 }
 \seealso{
 Other Control RPCs: \code{\link{getinfo}},
-  \code{\link{getnetworkinfo}}, \code{\link{getwalletinfo}}
+  \code{\link{getwalletinfo}}
 }
 \author{
 Bernhard Pfaff
