@@ -8,7 +8,7 @@
 #'
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Control RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getinfo},
@@ -27,7 +27,7 @@ getinfo <- function(obj){
 #' @param obj object of class \code{CONRPC}.
 #' @param rpc \code{character}, name of RPC function.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Control RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#help},
@@ -45,7 +45,7 @@ gethelp <- function(obj, rpc = ""){
 #'
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Control RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getwalletinfo},
@@ -63,7 +63,7 @@ getwalletinfo <- function(obj){
 #'
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Control RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getnetworkinfo},
