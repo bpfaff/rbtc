@@ -15,7 +15,7 @@ getmempoolancestors(obj, txid, verbose = FALSE)
 \code{FALSE} for array of transaction ids (default).}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 If txid is in the mempool, returns all in-mempool ancestors.

@@ -14,7 +14,7 @@ getblock(obj, blockhash, verbosity = c("l1", "l0", "l2"))
 \item{verbosity}{\code{character}, level of returned details.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns information of a block hash. The returned level of details depends on the

@@ -16,7 +16,7 @@ how thorough the block verification is.a json array of txids to filter.}
 the number of blocks to check.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Verifies blockchain database.

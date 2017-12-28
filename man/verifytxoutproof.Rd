@@ -13,7 +13,7 @@ verifytxoutproof(obj, proof)
 by gettxoutproof.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Verifies that a proof points to a transaction in a block,

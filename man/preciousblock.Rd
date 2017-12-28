@@ -12,7 +12,7 @@ preciousblock(obj, blockhash)
 \item{blockhash}{\code{character}, the hash of the block to mark as precious.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Treats a block as if it were received before others with the same work.

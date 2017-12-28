@@ -12,7 +12,7 @@ gethelp(obj, rpc = "")
 \item{rpc}{\code{character}, name of RPC function.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returning information about RPC functions.

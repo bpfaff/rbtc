@@ -15,7 +15,7 @@ gettxoutproof(obj, txids, blockhash = NULL)
 (optional, default \code{NULL}).}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns a hex-encoded proof that "txid" was included in a block.

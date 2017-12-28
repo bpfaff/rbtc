@@ -10,7 +10,7 @@ getbestblockhash(obj)
 \item{obj}{object of class \code{CONRPC}.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns the hash of the best (tip) block in the longest blockchain.

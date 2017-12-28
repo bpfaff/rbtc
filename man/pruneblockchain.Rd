@@ -12,7 +12,7 @@ pruneblockchain(obj, height)
 \item{height}{\code{integer} The block height to prune up to.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Pruning of blockchain.

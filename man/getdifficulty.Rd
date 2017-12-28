@@ -10,7 +10,7 @@ getdifficulty(obj)
 \item{obj}{object of class \code{CONRPC}.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns the proof-of-work difficulty as a multiple of the minimum difficulty.

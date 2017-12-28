@@ -12,7 +12,7 @@ getblockhash(obj, height)
 \item{height}{\code{integer} the height index.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns hash of block in best-block-chain at height provided.

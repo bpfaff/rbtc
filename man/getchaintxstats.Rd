@@ -16,7 +16,7 @@ number of blocks (default: one month).}
 that ends the window.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Compute statistics about the total number and

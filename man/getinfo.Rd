@@ -10,7 +10,7 @@ getinfo(obj)
 \item{obj}{object of class \code{CONRPC}.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returning information about bitcoin configuration and settings.

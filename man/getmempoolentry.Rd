@@ -12,7 +12,7 @@ getmempoolentry(obj, txid)
 \item{txid}{\code{character}, the transaction id (must be in mempool).}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns mempool data for given transaction.

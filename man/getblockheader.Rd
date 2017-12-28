@@ -15,7 +15,7 @@ getblockheader(obj, hash, verbose = TRUE)
 \code{FALSE} for the hex encoded data.}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns the block header for a given hash string.

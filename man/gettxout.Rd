@@ -16,7 +16,7 @@ gettxout(obj, txid, n, incmempool = TRUE)
 \item{incmempool}{\code{logical} whether to include the mempool (default \code{TRUE}).}
 }
 \value{
-A coerced \code{list} object from RPC-JSON API.
+A S4-object of class \code{ANSRPC}.
 }
 \description{
 Returns details about an unspent transaction output.
