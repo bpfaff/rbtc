@@ -4,7 +4,7 @@
 #'
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getblockchaininfo},
@@ -22,7 +22,7 @@ getblockchaininfo <- function(obj){
 #'
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getbestblockhash},
@@ -50,7 +50,7 @@ getbestblockhash <- function(obj){
 #' @param blockhash \code{character}, the block hash.
 #' @param verbosity \code{character}, level of returned details. 
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getblock},
@@ -75,7 +75,7 @@ getblock <- function(obj, blockhash, verbosity = c("l1", "l0", "l2")){
 #'
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getblockcount},
@@ -94,7 +94,7 @@ getblockcount <- function(obj){
 #' @param obj object of class \code{CONRPC}.
 #' @param height \code{integer} the height index.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getblockhash},
@@ -114,7 +114,7 @@ getblockhash <- function(obj, height){
 #' 
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getchaintips},
@@ -132,7 +132,7 @@ getchaintips <- function(obj){
 #' 
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getdifficulty},
@@ -150,7 +150,7 @@ getdifficulty <- function(obj){
 #' 
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getmempoolinfo},
@@ -169,7 +169,7 @@ getmempoolinfo <- function(obj){
 #'  
 #' @param obj object of class \code{CONRPC}.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#gettxoutsetinfo},
@@ -192,7 +192,7 @@ gettxoutsetinfo <- function(obj){
 #' May be set to a discrete height, or a unix timestamp to prune blocks whose block time
 #' is at least 2 hours older than the provided timestamp.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#pruneblockchain},
@@ -219,7 +219,7 @@ pruneblockchain <- function(obj, height){
 #' hex-encoded data for blockheader 'hash'. If verbose is true,
 #' returns an Object with information about blockheader <hash>.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getblockheader},
@@ -245,7 +245,7 @@ getblockheader <- function(obj, hash, verbose = TRUE){
 #' @param blockhash \code{character} optional, the hash of the block
 #' that ends the window.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getchaintxstats},
@@ -276,7 +276,7 @@ getchaintxstats <- function(obj, nblocks = NULL, blockhash = NULL){
 #' @param obj object of class \code{CONRPC}.
 #' @param blockhash \code{character}, the hash of the block to mark as precious.
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#preciousblock},
@@ -297,7 +297,7 @@ preciousblock <- function(obj, blockhash){
 #' @param obj object of class \code{CONRPC}.
 #' @param txid \code{character}, the transaction id (must be in mempool).
 #'
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getmempoolentry},
@@ -320,7 +320,7 @@ getmempoolentry <- function(obj, txid){
 #' @param verbose \code{logical}, \code{TrueTRUE} for a json object,
 #' \code{FALSE} for array of transaction ids (default).
 #' 
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getmempoolancestors},
@@ -344,7 +344,7 @@ getmempoolancestors <- function(obj, txid, verbose = FALSE){
 #' @param verbose \code{logical}, \code{TrueTRUE} for a json object,
 #' \code{FALSE} for array of transaction ids (default).
 #' 
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getmempooldescendants},
@@ -370,7 +370,7 @@ getmempooldescendants <- function(obj, txid, verbose = FALSE){
 #' @param verbose \code{logical}, \code{TRUE} for a json object,
 #' \code{FALSE} for array of transaction ids
 #' 
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#getrawmempool},
@@ -395,7 +395,7 @@ getrawmempool <- function(obj, verbose = TRUE){
 #' @details
 #' Note that an unspent output that is spent in the mempool won't appear.
 #' 
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#gettxout},
@@ -429,7 +429,7 @@ gettxout <- function(obj, txid, n, incmempool = TRUE){
 #' option or specify the block in which the transaction is included manually
 #' (by blockhash).
 #' 
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#gettxoutproof},
@@ -462,7 +462,7 @@ gettxoutproof <- function(obj, txids, blockhash = NULL){
 #' @param nblocks \code{integer} (optional, default=6, 0=all),
 #' the number of blocks to check.
 #' 
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#verifychain},
@@ -501,7 +501,7 @@ verifychain <- function(obj, checklevel = NULL, nblocks =  NULL){
 #' @param proof \code{character} the hex-encoded proof generated
 #' by gettxoutproof.
 #' 
-#' @return A coerced \code{list} object from RPC-JSON API.
+#' @return A S4-object of class \code{ANSRPC}.
 #' @family Blockchain RPCs
 #' @author Bernhard Pfaff
 #' @references \url{https://bitcoin.org/en/developer-reference#verifytxoutproof},
