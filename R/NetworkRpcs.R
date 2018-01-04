@@ -34,3 +34,24 @@ getpeerinfo <- function(obj){
 getnetworkinfo <- function(obj){
     rpcpost(obj, "getnetworkinfo")
 }
+#' RPC-JSON API: ping
+#' 
+#' Requests that a ping be sent to all other nodes, to measure ping time.
+#' Results provided in getpeerinfo, pingtime and pingwait fields are
+#' decimal seconds. Ping command is handled in queue with all other commands,
+#' so it measures processing backlog, not just network ping.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#ping},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name ping
+#' @aliases ping 
+#' @rdname ping
+#' @export
+ping <- function(obj){
+    rpcpost(obj, "ping")
+}
