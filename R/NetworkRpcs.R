@@ -55,3 +55,22 @@ getnetworkinfo <- function(obj){
 ping <- function(obj){
     rpcpost(obj, "ping")
 }
+#' RPC-JSON API: getnettotals
+#' 
+#' Returns information about network traffic, including bytes in,
+#' bytes out, and current time.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references \url{https://bitcoin.org/en/developer-reference#getnettotals},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getnettotals
+#' @aliases getnettotals 
+#' @rdname getnettotals
+#' @export
+getnettotals <- function(obj){
+    rpcpost(obj, "getnettotals")
+}

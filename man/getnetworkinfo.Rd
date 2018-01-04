@@ -20,8 +20,8 @@ Returns an object containing various state info regarding P2P networking.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Network RPCs: \code{\link{getpeerinfo}},
-  \code{\link{ping}}
+Other Network RPCs: \code{\link{getnettotals}},
+  \code{\link{getpeerinfo}}, \code{\link{ping}}
 }
 \author{
 Bernhard Pfaff
