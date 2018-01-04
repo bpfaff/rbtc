@@ -23,8 +23,9 @@ so it measures processing backlog, not just network ping.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Network RPCs: \code{\link{getnettotals}},
-  \code{\link{getnetworkinfo}}, \code{\link{getpeerinfo}}
+Other Network RPCs: \code{\link{getconnectioncount}},
+  \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
+  \code{\link{getpeerinfo}}
 }
 \author{
 Bernhard Pfaff

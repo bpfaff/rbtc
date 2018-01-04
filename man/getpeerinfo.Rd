@@ -20,8 +20,9 @@ Returns data about each connected network node as a json array of objects.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Network RPCs: \code{\link{getnettotals}},
-  \code{\link{getnetworkinfo}}, \code{\link{ping}}
+Other Network RPCs: \code{\link{getconnectioncount}},
+  \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
+  \code{\link{ping}}
 }
 \author{
 Bernhard Pfaff

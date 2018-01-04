@@ -74,3 +74,22 @@ ping <- function(obj){
 getnettotals <- function(obj){
     rpcpost(obj, "getnettotals")
 }
+#' RPC-JSON API: getconnectioncount
+#' 
+#' Returns the number of connections to other nodes.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references
+#' \url{https://bitcoin.org/en/developer-reference#getconnectioncount},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getconnectioncount
+#' @aliases getconnectioncount
+#' @rdname getconnectioncount
+#' @export
+getconnectioncount <- function(obj){
+    rpcpost(obj, "getconnectioncount")
+}

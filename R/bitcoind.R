@@ -157,6 +157,9 @@ rpcpost <- function(obj, api, plist = list()){
     if (is.null(res)){
         res <- ""
     }
+    if (is.integer(res)){
+        res <- list(res)
+    }
     out <- new("ANSRPC",
                rpcname = api,
                id = pid,
