@@ -23,7 +23,8 @@ bytes out, and current time.
 \seealso{
 Other Network RPCs: \code{\link{getconnectioncount}},
   \code{\link{getnetworkinfo}}, \code{\link{getpeerinfo}},
-  \code{\link{ping}}, \code{\link{setnetworkactive}}
+  \code{\link{listbanned}}, \code{\link{ping}},
+  \code{\link{setnetworkactive}}
 }
 \author{
 Bernhard Pfaff
