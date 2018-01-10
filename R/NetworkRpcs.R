@@ -133,3 +133,30 @@ setnetworkactive <- function(obj, state = TRUE){
 listbanned <- function(obj){
     rpcpost(obj, "listbanned")
 }
+#' RPC-JSON API: addnode
+#' 
+#' Attempts to add or remove a node from the addnode list.
+#' Or try a connection to a node once.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param node \code{character} the node (see \code{getpeerinfo()} for nodes).
+#' @param command \code{character} 'add' to add a node to the list,
+#' 'remove' to remove a node from the list, 'onetry' to try a connection
+#' to the node once.
+#' 
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references
+#' \url{https://bitcoin.org/en/developer-reference#addnode},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name addnode
+#' @aliases addnode
+#' @rdname addnode
+#' @export
+addnode <- function(obj, node, command = c("add", "remove", "onetry")){
+    node <- as.character(node)
+    command <- match.arg(command)
+    pl <- list(node = node, command = command)
+    rpcpost(obj, "addnode", pl)
+}
