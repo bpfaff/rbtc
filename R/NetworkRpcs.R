@@ -114,3 +114,22 @@ setnetworkactive <- function(obj, state = TRUE){
     pl <- list(state = state)
     rpcpost(obj, "setnetworkactive", pl)
 }
+#' RPC-JSON API: listbanned
+#' 
+#' List all banned IPs/Subnets.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references
+#' \url{https://bitcoin.org/en/developer-reference#listbanned},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name listbanned
+#' @aliases listbanned
+#' @rdname listbanned
+#' @export
+listbanned <- function(obj){
+    rpcpost(obj, "listbanned")
+}
