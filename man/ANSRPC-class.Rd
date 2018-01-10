@@ -13,7 +13,7 @@ returned by API-calls to bitcoind.
 \describe{
 \item{\code{rpcname}}{\code{character} the name of the API.}
 
-\item{\code{result}}{\code{CharacterOrList} the output/result of the API.}
+\item{\code{result}}{\code{ANY} the output/result of the API.}
 
 \item{\code{ecode}}{\code{NullOrInteger} the error code,
 in case of no error \code{NULL}.}
@@ -26,7 +26,6 @@ in case of no error \code{NULL}.}
 
 \seealso{
 Other bitcoind functions: \code{\link{CONRPC-class}},
-  \code{\link{CharacterOrList-class}},
   \code{\link{NullOrCharacter-class}},
   \code{\link{NullOrInteger-class}}, \code{\link{conrpc}},
   \code{\link{rpcpost}}, \code{\link{startbtc}},

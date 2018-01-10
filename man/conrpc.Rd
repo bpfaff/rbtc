@@ -20,7 +20,6 @@ and \code{rpcpassword}.
 \seealso{
 Other bitcoind functions: \code{\link{ANSRPC-class}},
   \code{\link{CONRPC-class}},
-  \code{\link{CharacterOrList-class}},
   \code{\link{NullOrCharacter-class}},
   \code{\link{NullOrInteger-class}}, \code{\link{rpcpost}},
   \code{\link{startbtc}}, \code{\link{stopbtc}}
