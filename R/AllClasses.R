@@ -35,22 +35,13 @@ setClassUnion(name = "NullOrCharacter",
 #' @export
 setClassUnion(name = "NullOrInteger",
               members = c("NULL", "integer"))
-#' @title S4 Class Union character or list
-#' 
-#' @description
-#' S4-class union of \code{character} or \code{list}.
-#' @family bitcoind functions
-#' @export
-setClassUnion(name = "CharacterOrList",
-              members = c("character", "list"))
-
 #' The ANSRPC class
 #'
 #' This class definition is employed to cast the JSON-objects
 #' returned by API-calls to bitcoind.
 #'
 #' @slot rpcname \code{character} the name of the API.
-#' @slot result \code{CharacterOrList} the output/result of the API.
+#' @slot result \code{ANY} the output/result of the API.
 #' @slot ecode \code{NullOrInteger} the error code,
 #' in case of no error \code{NULL}.
 #' @slot emessage \code{NullOrIntegerCharacter} the error message,
@@ -63,7 +54,7 @@ setClassUnion(name = "CharacterOrList",
 #' @export
 setClass("ANSRPC", representation = list(
                        rpcname = "character",
-                       result = "CharacterOrList",
+                       result = "ANY",
                        ecode = "NullOrInteger",
                        emessage = "NullOrCharacter",
                        id = "character")
@@ -83,10 +74,11 @@ setMethod("show", signature = "ANSRPC",
               if (is.null(slot(object, "ecode")) &&
                   is.null(slot(object, "emessage"))){
                   ans <- slot(object, "result")
-                  if (is.list(ans)){
-                      print(ans)
-                  } else {
+                  if (is.character(ans)){
                       cat(ans)
+                      cat("\n")
+                  } else {
+                      print(ans)
                   }
               } else {
                   cat(paste("The API:", object@rpcname,
