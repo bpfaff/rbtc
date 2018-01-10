@@ -22,7 +22,7 @@ Returns the number of connections to other nodes.
 \seealso{
 Other Network RPCs: \code{\link{getnettotals}},
   \code{\link{getnetworkinfo}}, \code{\link{getpeerinfo}},
-  \code{\link{ping}}
+  \code{\link{ping}}, \code{\link{setnetworkactive}}
 }
 \author{
 Bernhard Pfaff

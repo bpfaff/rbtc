@@ -22,7 +22,7 @@ Returns an object containing various state info regarding P2P networking.
 \seealso{
 Other Network RPCs: \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getpeerinfo}},
-  \code{\link{ping}}
+  \code{\link{ping}}, \code{\link{setnetworkactive}}
 }
 \author{
 Bernhard Pfaff
