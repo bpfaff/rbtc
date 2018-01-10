@@ -93,3 +93,24 @@ getnettotals <- function(obj){
 getconnectioncount <- function(obj){
     rpcpost(obj, "getconnectioncount")
 }
+#' RPC-JSON API: setnetworkactive
+#' 
+#' Disable/enable all p2p network activity.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param state \code{logical} the network state.
+#' 
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references
+#' \url{https://bitcoin.org/en/developer-reference#setnetworkactive},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name setnetworkactive
+#' @aliases setnetworkactive
+#' @rdname setnetworkactive
+#' @export
+setnetworkactive <- function(obj, state = TRUE){
+    pl <- list(state = state)
+    rpcpost(obj, "setnetworkactive", pl)
+}
