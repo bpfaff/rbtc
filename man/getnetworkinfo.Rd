@@ -20,7 +20,8 @@ Returns an object containing various state info regarding P2P networking.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Network RPCs: \code{\link{getconnectioncount}},
+Other Network RPCs: \code{\link{addnode}},
+  \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getpeerinfo}},
   \code{\link{listbanned}}, \code{\link{ping}},
   \code{\link{setnetworkactive}}

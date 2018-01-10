@@ -20,10 +20,10 @@ Returns the number of connections to other nodes.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Network RPCs: \code{\link{getnettotals}},
-  \code{\link{getnetworkinfo}}, \code{\link{getpeerinfo}},
-  \code{\link{listbanned}}, \code{\link{ping}},
-  \code{\link{setnetworkactive}}
+Other Network RPCs: \code{\link{addnode}},
+  \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
+  \code{\link{getpeerinfo}}, \code{\link{listbanned}},
+  \code{\link{ping}}, \code{\link{setnetworkactive}}
 }
 \author{
 Bernhard Pfaff
