@@ -28,6 +28,7 @@ Or try a connection to a node once.
 }
 \seealso{
 Other Network RPCs: \code{\link{clearbanned}},
+  \code{\link{getaddednodeinfo}},
   \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
   \code{\link{getpeerinfo}}, \code{\link{listbanned}},

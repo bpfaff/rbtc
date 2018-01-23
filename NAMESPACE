@@ -3,6 +3,7 @@
 export(addnode)
 export(clearbanned)
 export(conrpc)
+export(getaddednodeinfo)
 export(getbestblockhash)
 export(getblock)
 export(getblockchaininfo)

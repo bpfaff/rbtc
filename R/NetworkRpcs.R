@@ -179,3 +179,32 @@ addnode <- function(obj, node, command = c("add", "remove", "onetry")){
 clearbanned <- function(obj){
     rpcpost(obj, "clearbanned")
 }
+#' RPC-JSON API: getaddednodeinfo
+#'
+#' Returns information about the given added node,
+#' or all added nodes (note that onetry addnodes
+#' are not listed here)
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param node \code{character} the node (see \code{getpeerinfo()}
+#' for nodes).
+#' 
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references
+#' \url{https://bitcoin.org/en/developer-reference#getaddednodeinfo},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name getaddednodeinfo
+#' @aliases getaddednodeinfo
+#' @rdname getaddednodeinfo
+#' @export
+getaddednodeinfo <- function(obj, node = NULL){
+    if (is.null(node)){
+        return(rpcpost(obj, "getaddednodeinfo"))
+    } else {
+        node <- as.character(node)[1]
+        pl <- list(node = node)
+        return(rpcpost(obj, "getaddednodeinfo", pl))
+    }
+}
