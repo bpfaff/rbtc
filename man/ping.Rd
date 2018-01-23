@@ -24,6 +24,7 @@ so it measures processing backlog, not just network ping.
 }
 \seealso{
 Other Network RPCs: \code{\link{addnode}},
+  \code{\link{clearbanned}},
   \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
   \code{\link{getpeerinfo}}, \code{\link{listbanned}},

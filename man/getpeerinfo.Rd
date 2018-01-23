@@ -21,6 +21,7 @@ Returns data about each connected network node as a json array of objects.
 }
 \seealso{
 Other Network RPCs: \code{\link{addnode}},
+  \code{\link{clearbanned}},
   \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
   \code{\link{listbanned}}, \code{\link{ping}},

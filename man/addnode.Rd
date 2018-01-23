@@ -27,7 +27,8 @@ Or try a connection to a node once.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Network RPCs: \code{\link{getconnectioncount}},
+Other Network RPCs: \code{\link{clearbanned}},
+  \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
   \code{\link{getpeerinfo}}, \code{\link{listbanned}},
   \code{\link{ping}}, \code{\link{setnetworkactive}}

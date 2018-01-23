@@ -160,3 +160,22 @@ addnode <- function(obj, node, command = c("add", "remove", "onetry")){
     pl <- list(node = node, command = command)
     rpcpost(obj, "addnode", pl)
 }
+#' RPC-JSON API: clearbanned
+#' 
+#' Clear all banned IPs.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#'
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references
+#' \url{https://bitcoin.org/en/developer-reference#clearbanned},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name clearbanned
+#' @aliases clearbanned
+#' @rdname clearbanned
+#' @export
+clearbanned <- function(obj){
+    rpcpost(obj, "clearbanned")
+}

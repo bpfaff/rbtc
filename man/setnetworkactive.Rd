@@ -23,6 +23,7 @@ Disable/enable all p2p network activity.
 }
 \seealso{
 Other Network RPCs: \code{\link{addnode}},
+  \code{\link{clearbanned}},
   \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
   \code{\link{getpeerinfo}}, \code{\link{listbanned}},
