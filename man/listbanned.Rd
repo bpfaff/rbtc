@@ -21,7 +21,7 @@ List all banned IPs/Subnets.
 }
 \seealso{
 Other Network RPCs: \code{\link{addnode}},
-  \code{\link{clearbanned}},
+  \code{\link{clearbanned}}, \code{\link{disconnectnode}},
   \code{\link{getaddednodeinfo}},
   \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},

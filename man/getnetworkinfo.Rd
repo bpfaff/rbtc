@@ -21,7 +21,7 @@ Returns an object containing various state info regarding P2P networking.
 }
 \seealso{
 Other Network RPCs: \code{\link{addnode}},
-  \code{\link{clearbanned}},
+  \code{\link{clearbanned}}, \code{\link{disconnectnode}},
   \code{\link{getaddednodeinfo}},
   \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getpeerinfo}},

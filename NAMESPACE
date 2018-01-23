@@ -3,6 +3,7 @@
 export(addnode)
 export(clearbanned)
 export(conrpc)
+export(disconnectnode)
 export(getaddednodeinfo)
 export(getbestblockhash)
 export(getblock)

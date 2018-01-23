@@ -22,7 +22,7 @@ bytes out, and current time.
 }
 \seealso{
 Other Network RPCs: \code{\link{addnode}},
-  \code{\link{clearbanned}},
+  \code{\link{clearbanned}}, \code{\link{disconnectnode}},
   \code{\link{getaddednodeinfo}},
   \code{\link{getconnectioncount}},
   \code{\link{getnetworkinfo}}, \code{\link{getpeerinfo}},

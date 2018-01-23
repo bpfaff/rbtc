@@ -208,3 +208,44 @@ getaddednodeinfo <- function(obj, node = NULL){
         return(rpcpost(obj, "getaddednodeinfo", pl))
     }
 }
+#' RPC-JSON API: disconnectnode
+#'
+#' Immediately disconnects from the specified peer node.
+#' Strictly one out of \code{address} and \code{nodeid} can be
+#' provided to identify the node.
+#' 
+#' @param obj object of class \code{CONRPC}.
+#' @param address \code{character} the IP address/port
+#' of the node.
+#' @param nodeid \code{character} The node ID
+#' (see \code{getpeerinfo()} for node IDs).
+#' 
+#' @return A S4-object of class \code{ANSRPC}.
+#' @family Network RPCs
+#' @author Bernhard Pfaff
+#' @references
+#' \url{https://bitcoin.org/en/developer-reference#disconnectnode},
+#' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
+#' @name disconnectnode
+#' @aliases disconnectnode
+#' @rdname disconnectnode
+#' @export
+disconnectnode <- function(obj, address = NULL, nodeid = NULL){
+    if (is.null(address) & is.null(nodeid)){
+        stop("Either 'address' or 'nodeid' must be provided.\n")
+    }
+    if (!is.null(address) & !is.null(nodeid)){
+        warning("Both arguments ('address' and 'nodeid') set, using 'address'.\n")
+        address <- as.character(address)
+        pl <- list(address = address)
+    }
+    if (is.null(address) & !is.null(nodeid)){
+        nodeid <- as.character(nodeid)
+        pl <- list(nodeid = nodeid)
+    }
+    if (!is.null(address) & is.null(nodeid)){
+        address <- as.character(address)
+        pl <- list(address = address)
+    }
+    rpcpost(obj, "disconnectnode", pl)
+}

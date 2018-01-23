@@ -26,7 +26,7 @@ are not listed here)
 }
 \seealso{
 Other Network RPCs: \code{\link{addnode}},
-  \code{\link{clearbanned}},
+  \code{\link{clearbanned}}, \code{\link{disconnectnode}},
   \code{\link{getconnectioncount}},
   \code{\link{getnettotals}}, \code{\link{getnetworkinfo}},
   \code{\link{getpeerinfo}}, \code{\link{listbanned}},
