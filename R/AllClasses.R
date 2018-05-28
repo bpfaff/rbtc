@@ -24,17 +24,21 @@ setClass("CONRPC", representation = list(
 #' @description
 #' S4-class union of \code{NULL} or \code{character}.
 #' @family bitcoind functions
+#' @name NullOrCharacter-class 
+#' @rdname NullOrCharacter-class
 #' @export
 setClassUnion(name = "NullOrCharacter",
-              members = c("NULL", "character"))
+              members = c("character", "NULL"))
 #' @title S4 Class Union NULL or integer
 #' 
 #' @description
 #' S4-class union of \code{NULL} or \code{integer}.
 #' @family bitcoind functions
+#' @name NullOrInteger-class 
+#' @rdname NullOrInteger-class
 #' @export
 setClassUnion(name = "NullOrInteger",
-              members = c("NULL", "integer"))
+              members = c("integer", "NULL"))
 #' The ANSRPC class
 #'
 #' This class definition is employed to cast the JSON-objects
