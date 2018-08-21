@@ -235,7 +235,7 @@ disconnectnode <- function(obj, address = NULL, nodeid = NULL){
         stop("Either 'address' or 'nodeid' must be provided.\n")
     }
     if (!is.null(address) & !is.null(nodeid)){
-        warning("Both arguments ('address' and 'nodeid') set, using 'address'.\n")
+        warning("Arguments 'address' and 'nodeid' provided, using 'address'.\n")
         address <- as.character(address)
         pl <- list(address = address)
     }

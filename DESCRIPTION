@@ -1,13 +1,15 @@
 Package: rbtc
 Title: Bitcoin API
-Version: 0.1-1
+Version: 0.1-3
 Authors@R: person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cre"))
-Description: Implementation of the RPC-JSON API for Bitcoin.
-Depends: R (>= 3.4.3)
+Description: Implementation of the RPC-JSON API for Bitcoin and utility functions for address creation.
+Depends: R (>= 3.4.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
-Imports: methods,
-    rjson,
-    httr
+Imports: methods, rjson, httr, openssl, gmp
+NeedsCompilation: no
+Packaged: 2018-08-14 14:50:15 UTC; pfaffb
+Author: Bernhard Pfaff [aut, cre]
+Maintainer: Bernhard Pfaff <bernhard@pfaffikus.de>
