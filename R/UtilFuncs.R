@@ -179,3 +179,31 @@ txids <- function(obj, height, excoinbase = TRUE){
     }
     ans
 }
+#' Retrieving the input transaction IDs
+#'
+#' This function returns the transaction IDs of the inputs for
+#' a given transaction.
+#'
+#' @param obj \code{CONRPC}, configuration object.
+#' @param txid \code{character}, the id of the transaction.
+#'
+#' @return \code{character}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name txinids
+#' @rdname txinids
+#' @export
+txinids <- function(obj, txid){
+    txraw <- slot(getrawtransaction(obj, txid),
+                  "result")
+    txdec <- slot(decoderawtransaction(obj, txraw),
+                  "result")
+    names(txdec)
+    vin <- txdec[["vin"]]
+    txinids <- unlist(lapply(vin, function(x) x[["txid"]]))
+    txinpos <- unlist(lapply(vin, function(x) x[["vout"]]))  + 1
+    ans <- data.frame(txinids, txinpos,
+                      stringsAsFactors = FALSE)
+    ans
+}
+
