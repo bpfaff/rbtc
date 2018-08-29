@@ -17,8 +17,11 @@
 #' @export
 int2date <- function(x){
     x <- abs(as.integer(x))
-    ans <- as.POSIXct(x, tz = "GMT", origin = "1970-01-01")
-    format(ans, "%Y-%m-%d %H:%M:%S")
+    ans <- as.POSIXct(x,
+                      tz = "GMT",
+                      origin = "1970-01-01 00:00:00",
+                      format = "%Y-%m-%d %H:%M:%S")
+    ans
 }
 #' Convert date/time to integer
 #'
