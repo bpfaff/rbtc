@@ -199,7 +199,6 @@ txinids <- function(obj, txid){
                   "result")
     txdec <- slot(decoderawtransaction(obj, txraw),
                   "result")
-    names(txdec)
     vin <- txdec[["vin"]]
     txinids <- unlist(lapply(vin, function(x) x[["txid"]]))
     txinpos <- unlist(lapply(vin, function(x) x[["vout"]]))  + 1
@@ -207,4 +206,27 @@ txinids <- function(obj, txid){
                       stringsAsFactors = FALSE)
     ans
 }
-
+#' Retrieving values of UTXOs
+#'
+#' This function returns the values of UTXO(s) in a transaction.
+#'
+#' @param obj \code{CONRPC}, configuration object.
+#' @param txid \code{character}, the id of the transaction.
+#'
+#' @return \code{numeric}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name utxovalue
+#' @rdname utxovalue
+#' @export
+utxovalue <- function(obj, txid){
+    txraw <- slot(getrawtransaction(obj, txid),
+                  "result")
+    txdec <- slot(decoderawtransaction(obj, txraw),
+                  "result")
+    vout <- txdec[["vout"]]
+    ans <- unlist(
+        lapply(vout, function(x) x[["value"]])
+    )
+    ans
+}
