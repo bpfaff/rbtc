@@ -163,9 +163,9 @@ txids <- function(obj, height, excoinbase = TRUE){
     height <- as.integer(abs(height))
     bc <- unlist(slot(getblockcount(obj),
                       "result"))
-    if( height > bc){
+    if (height > bc) {
         stop("'height' exceeds max height in local chain.\n")
-        }
+    }
     h <- slot(getblockhash(obj, height),
               "result")
     b <- slot(getblock(obj, h),
