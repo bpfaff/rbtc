@@ -187,7 +187,8 @@ txids <- function(obj, height, excoinbase = TRUE){
 #' @param obj \code{CONRPC}, configuration object.
 #' @param txid \code{character}, the id of the transaction.
 #'
-#' @return \code{character}
+#' @return \code{data.frame}, the transaction ID(s) and
+#' the position(s) of the previous UTXO(s).
 #' @family UtilityFuncs
 #' @author Bernhard Pfaff
 #' @name txinids
