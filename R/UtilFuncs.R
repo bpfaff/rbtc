@@ -144,3 +144,38 @@ intRangePeriod <- function(d1, d2){
     }
     ans
 }
+#' Retrieve TX Ids in block
+#'
+#' This function retrieves the transaction IDs in a block.
+#'
+#' @param obj \code{CONRPC}, configuration object.
+#' @param height \code{integer}, the block's height.
+#' @param excoinbase \code{logical}, whether coinbase transaction
+#' should be excluded (default is \code{TRUE}).
+#'
+#' @return \code{character}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name txids
+#' @rdname txids
+#' @export
+txids <- function(obj, height, excoinbase = TRUE){
+    height <- as.integer(abs(height))
+    bc <- unlist(slot(getblockcount(obj),
+                      "result"))
+    if( height > bc){
+        stop("'height' exceeds max height in local chain.\n")
+        }
+    h <- slot(getblockhash(obj, height),
+              "result")
+    b <- slot(getblock(obj, h),
+              "result")
+    ans <- unlist(b[["tx"]])
+    if (excoinbase){
+        ans <- ans[-1]
+    }
+    if (length(ans) < 1) {
+        warning("No transactions in block.\n")
+    }
+    ans
+}
