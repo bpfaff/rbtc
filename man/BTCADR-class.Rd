@@ -41,3 +41,4 @@ Other BtcAdresses: \code{\link{PrivKey2PubKey}},
 \author{
 Bernhard Pfaff
 }
+\concept{BtcAdresses}

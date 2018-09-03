@@ -4,10 +4,10 @@
 \alias{gethelp}
 \title{RPC-JSON API: Help}
 \usage{
-gethelp(obj, rpc = "")
+gethelp(con, rpc = "")
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{rpc}{\code{character}, name of RPC function.}
 }
@@ -28,3 +28,4 @@ Other Control RPCs: \code{\link{getinfo}},
 \author{
 Bernhard Pfaff
 }
+\concept{Control RPCs}

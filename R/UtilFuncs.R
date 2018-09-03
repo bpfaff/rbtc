@@ -2,7 +2,7 @@
 #'
 #' This function returns the associated \code{POSIXct} time
 #' to the time stamp integer in a block header.
-#' 
+#'
 #' @param x \code{integer}, the block header time stamp
 #'
 #' @return An object of class \code{POSIXct, POSIXt}
@@ -27,7 +27,7 @@ int2date <- function(x){
 #'
 #' This function returns the associated \code{integer} time
 #' for a given date/time object (coercible as \code{POSIXct} object.
-#' 
+#'
 #' @param x \code{POSIXct}, date/time object.
 #' @return \code{integer}
 #' @family UtilityFuncs
@@ -42,11 +42,11 @@ date2int <- function(x){
     x <- as.POSIXct(x, tz = "GMT", origin = "1970-01-01")
     as.integer(x)
 }
-#' Integer representation of a day-begin 
+#' Integer representation of a day-begin
 #'
 #' This function returns the associated \code{integer} time
 #' for the start of a specific day (\emph{i.e.}, \code{00:00:00} time).
-#' 
+#'
 #' @param x \code{POSIXct}, date/time object.
 #' @return \code{integer}
 #' @family UtilityFuncs
@@ -67,11 +67,11 @@ intMinDay <- function(x){
                     origin = "1970-01-01")
     date2int(s)
 }
-#' Integer representation of a day-end 
+#' Integer representation of a day-end
 #'
 #' This function returns the associated \code{integer} time
 #' for the end of a specific day (\emph{i.e.}, \code{23:59:59} time).
-#' 
+#'
 #' @param x \code{POSIXct}, date/time object.
 #' @return \code{integer}
 #' @family UtilityFuncs
@@ -92,11 +92,11 @@ intMaxDay <- function(x){
                     origin = "1970-01-01")
     date2int(e)
 }
-#' Integer range within a day 
+#' Integer range within a day
 #'
 #' This function returns the associated \code{integer} times
 #' for the start and end of a specific day.
-#' 
+#'
 #' @param x \code{POSIXct}, date/time object.
 #'
 #' @return \code{integer}
@@ -114,11 +114,11 @@ intRangeDay <- function(x){
     d <- as.Date(x)
     c(first = intMinDay(d), last = intMaxDay(d))
 }
-#' Integer range between two dates 
+#' Integer range between two dates
 #'
 #' This function returns the associated \code{integer} times
 #' for the start of date \code{d1} and the end of date \code{d2}.
-#' 
+#'
 #' @param d1 \code{POSIXct}, date/time object.
 #' @param d2 \code{POSIXct}, date/time object.
 #'
@@ -148,7 +148,7 @@ intRangePeriod <- function(d1, d2){
 #'
 #' This function retrieves the transaction IDs in a block.
 #'
-#' @param obj \code{CONRPC}, configuration object.
+#' @param con \code{CONRPC}, configuration object.
 #' @param height \code{integer}, the block's height.
 #' @param excoinbase \code{logical}, whether coinbase transaction
 #' should be excluded (default is \code{TRUE}).
@@ -159,16 +159,16 @@ intRangePeriod <- function(d1, d2){
 #' @name txids
 #' @rdname txids
 #' @export
-txids <- function(obj, height, excoinbase = TRUE){
+txids <- function(con, height, excoinbase = TRUE){
     height <- as.integer(abs(height))
-    bc <- unlist(slot(getblockcount(obj),
+    bc <- unlist(slot(getblockcount(con),
                       "result"))
     if (height > bc) {
         stop("'height' exceeds max height in local chain.\n")
     }
-    h <- slot(getblockhash(obj, height),
+    h <- slot(getblockhash(con, height),
               "result")
-    b <- slot(getblock(obj, h),
+    b <- slot(getblock(con, h),
               "result")
     ans <- unlist(b[["tx"]])
     if (excoinbase){
@@ -184,7 +184,7 @@ txids <- function(obj, height, excoinbase = TRUE){
 #' This function returns the transaction IDs of the inputs for
 #' a given transaction.
 #'
-#' @param obj \code{CONRPC}, configuration object.
+#' @param con \code{CONRPC}, configuration object.
 #' @param txid \code{character}, the id of the transaction.
 #'
 #' @return \code{data.frame}, the transaction ID(s) and
@@ -194,10 +194,10 @@ txids <- function(obj, height, excoinbase = TRUE){
 #' @name txinids
 #' @rdname txinids
 #' @export
-txinids <- function(obj, txid){
-    txraw <- slot(getrawtransaction(obj, txid),
+txinids <- function(con, txid){
+    txraw <- slot(getrawtransaction(con, txid),
                   "result")
-    txdec <- slot(decoderawtransaction(obj, txraw),
+    txdec <- slot(decoderawtransaction(con, txraw),
                   "result")
     vin <- txdec[["vin"]]
     txinids <- unlist(lapply(vin, function(x) x[["txid"]]))
@@ -210,7 +210,7 @@ txinids <- function(obj, txid){
 #'
 #' This function returns the values of UTXO(s) in a transaction.
 #'
-#' @param obj \code{CONRPC}, configuration object.
+#' @param con \code{CONRPC}, configuration object.
 #' @param txid \code{character}, the id of the transaction.
 #'
 #' @return \code{numeric}
@@ -219,14 +219,255 @@ txinids <- function(obj, txid){
 #' @name utxovalue
 #' @rdname utxovalue
 #' @export
-utxovalue <- function(obj, txid){
-    txraw <- slot(getrawtransaction(obj, txid),
+utxovalue <- function(con, txid){
+    txraw <- slot(getrawtransaction(con, txid),
                   "result")
-    txdec <- slot(decoderawtransaction(obj, txraw),
+    txdec <- slot(decoderawtransaction(con, txraw),
                   "result")
     vout <- txdec[["vout"]]
     ans <- unlist(
         lapply(vout, function(x) x[["value"]])
     )
+    ans
+}
+#' Age of UTXOs
+#'
+#' This function returns a \code{difftime} object measuring the elapsed time(s)
+#' between the UTXO(s) in a transaction and its input(s) (previous UTXO(s)).
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param txid \code{character}, the id of the transaction.
+#' @param units \code{character}, the time difference units;
+#' passed to \code{difftime()}.
+#'
+#' @return \code{difftime}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name utxoage
+#' @rdname utxoage
+#' @export
+utxoage <- function(con, txid,
+                    units = c("auto", "secs", "mins",
+                              "hours", "days", "weeks")){
+    txraw <- slot(getrawtransaction(con, txid, verbose = TRUE),
+                  "result")
+    txotime <- int2date(txraw[["time"]])
+    txins <- unlist(lapply(txraw[["vin"]],
+                           function(x) x[["txid"]])
+                    )
+    n <- length(txins)
+    txitime <- integer(n)
+    for (i in 1:n){
+        txraw <- slot(getrawtransaction(con, txins[i], verbose = TRUE),
+                      "result")
+        txitime[i] <- txraw[["time"]]
+    }
+    ans <- difftime(txotime, int2date(txitime), units = units)
+    list("TimeUtxo" = txraw[["time"]],
+         "AgeInput" = ans)
+}
+#' Compute fee of a transaction
+#'
+#' This function returns the implicit fee of a transaction,
+#' by computing the difference between the sum of its inputs
+#' and the sum of its outputs.
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param txid \code{character}, the id of the transaction.
+#'
+#' @return \code{numeric}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name txfee
+#' @rdname txfee
+#' @export
+txfee <- function(con, txid){
+    valo <- sum(utxovalue(con, txid))
+    txin <- txinids(con, txid)
+    n <- nrow(txin)
+    vali <- 0
+    for (i in 1:n){
+        val <- utxovalue(con, txin[i, 1])[txin[i, 2]]
+        vali <- vali + val
+    }
+    ans <- vali - valo
+    ans
+}
+#' Obtaining statistics of a block
+#'
+#' This function returns key statistics of a block's content,
+#' such as the time, the count of transactions,
+#' and summary statistics of the UTXOs.
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param height \code{integer}, the block's height.
+#' @param excoinbase \code{logical}, whether coinbase transaction
+#' should be excluded (default is \code{TRUE}).
+#'
+#' @return An object of class \code{data.frame}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name blockstats
+#' @rdname blockstats
+#' @export
+blockstats <- function(con, height, excoinbase = TRUE){
+    height <- as.integer(abs(height))
+    bc <- slot(getblockcount(con),
+               "result")
+    if (height > bc){
+        stop("'height' exceeds max height in local chain.\n")
+        }
+    h <- slot(getblockhash(con, height),
+              "result")
+    b <- slot(getblock(con, h),
+              "result")
+    ## to be filled
+    btime <- b[["time"]]
+    txids <- unlist(b[["tx"]])
+    n <- length(txids)
+    if (excoinbase){
+        txids <- txids[-1]
+    }
+    n <- length(txids)
+    if (n < 1) {
+        warning("No transactions in block.\n")
+        umax <- NA
+        umin <- NA
+        uavg <- NA
+        umed <- NA
+        usum <- NA
+    } else {
+        usum <- 0
+        uvals <- c()
+        for (i in 1:n){
+            uval <- utxovalue(con, txids[i])
+            usum <- usum + sum(uval)
+            uvals <- c(uvals, uval)
+        }
+        ## Summary statistics of uvals
+        umax <- max(uvals)
+        umin <- min(uvals)
+        uavg <- mean(uvals)
+        umed <- stats::median(uvals)
+    }
+    ans <- data.frame("Height" = height,
+                      "Time" = btime,
+                      "TxCount" = n,
+                      "UtxoMax" = umax,
+                      "UtxoMin" = umin,
+                      "UtxoMean" = uavg,
+                      "UtxoMedian" = umed,
+                      "UtxoVolume" = usum
+                      )
+    ans
+}
+#' Statistics of a transaction
+#'
+#' This function returns key statistics/characteristics of
+#' a transaction.
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param txid \code{character}, the id of the transaction.
+#'
+#' @return \code{data.frame}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name txstats
+#' @rdname txstats
+#' @export
+txstats <- function(con, txid){
+    txraw <- slot(getrawtransaction(con, txid, verbose = TRUE),
+                  "result")
+    uvals <- utxovalue(con, txid)
+    fee <- txfee(con, txid)
+    ans <- data.frame("CountTxInIds" = length(txraw[["vin"]]),
+                      "CountTxOutIds" = length(txraw[["vout"]]),
+                      "SumOfUtxo" = sum(uvals),
+                      "Fee" = fee,
+                      "Size" = txraw[["size"]],
+                      "Time" = txraw[["blocktime"]],
+                      "BlockHash" = txraw[["blockhash"]],
+                      "Confirmations" = txraw[["confirmations"]],
+                      stringsAsFactors = FALSE)
+    ans
+}
+#' Time of a block
+#'
+#' This function returns the time of a block in GMT.
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param height \code{integer}, the height of the block.
+#'
+#' @return \code{POSIXct}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name timeofblock
+#' @rdname timeofblock
+#' @export
+timeofblock <- function(con, height){
+    height <- as.integer(abs(height))
+    h <- slot(getblockhash(con, height),
+              "result")
+    b <- slot(getblock(con, h),
+              "result")
+    ans <- int2date(b[["time"]])
+    ans
+}
+#' Block height at time
+#'
+#' This function returns the block heights closest to
+#' a provided date/time (time zone is GMT).
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param targetdate \code{POSIXct}, the date/time of closest block heights.
+#'
+#' @return \code{data.frame}: the heights, the times and
+#' the time differences (in minutes) to the provided date/time.
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name blockattime
+#' @rdname blockattime
+#' @export
+blockattime <- function(con, targetdate){
+    dt <- as.POSIXct(targetdate, tz = "GMT")
+    bh <- slot(getbestblockhash(con),
+               "result")
+    lastblock <- slot(getblock(con, bh),
+                      "result")
+    lastheight <- lastblock[["height"]]
+    lasttime <- int2date(lastblock[["time"]])
+    if (dt > lasttime) {
+        stop("Required block time is greater than last block in local chain.\n")
+    }
+    deltatime <- difftime(lasttime, dt, units = "mins")
+    deltaheight <- ceiling(as.numeric(deltatime / 10))
+    approxh1 <- lastheight - deltaheight
+    ht <- timeofblock(con, approxh1)
+    signtimedelta <- searchdir <- sign(as.numeric(dt - ht))
+    while (identical(signtimedelta, searchdir)) {
+        approxh1 <- approxh1 + searchdir
+        ht <- timeofblock(con, approxh1)
+        ## big step, if current delta time is more than 100 mins
+        curdelta <- as.numeric(abs(
+        difftime(dt, ht, units = "mins")))
+        if (curdelta > 100){
+            approxh1 <- approxh1 + searchdir * floor(curdelta / 10)
+            ht <- timeofblock(con, approxh1)
+        }
+        signtimedelta <- sign(as.numeric(dt - ht))
+    }
+    approxt1 <- timeofblock(con, approxh1)
+    approxh2 <- approxh1 - searchdir
+    approxt2 <- timeofblock(con, approxh2)
+    Times <- c(approxt1, approxt2)
+    attr(Times, "tzone") <- "GMT"
+    ans <- data.frame("Height" = c(approxh1, approxh2),
+                  "Time" = Times,
+                  "DateQuery" = dt,
+                  "DeltaMinutes" = difftime(dt,
+                                          c(approxt1, approxt2),
+                                          units = "mins")
+                  )
+    ans <- ans[order(ans[, 1]), ]
     ans
 }

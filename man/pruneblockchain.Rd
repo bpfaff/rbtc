@@ -4,10 +4,10 @@
 \alias{pruneblockchain}
 \title{RPC-JSON API: pruneblockchain}
 \usage{
-pruneblockchain(obj, height)
+pruneblockchain(con, height)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{height}{\code{integer} The block height to prune up to.}
 }
@@ -28,7 +28,8 @@ is at least 2 hours older than the provided timestamp.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -47,3 +48,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

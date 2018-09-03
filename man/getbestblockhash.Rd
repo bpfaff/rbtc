@@ -4,10 +4,10 @@
 \alias{getbestblockhash}
 \title{RPC-JSON API: getbestblockhash}
 \usage{
-getbestblockhash(obj)
+getbestblockhash(con)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 }
 \value{
 A S4-object of class \code{ANSRPC}.
@@ -20,7 +20,8 @@ Returns the hash of the best (tip) block in the longest blockchain.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getblockchaininfo}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
   \code{\link{getchaintips}},
@@ -39,3 +40,4 @@ Other Blockchain RPCs: \code{\link{getblockchaininfo}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

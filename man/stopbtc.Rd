@@ -24,3 +24,4 @@ Other bitcoind functions: \code{\link{ANSRPC-class}},
 \author{
 Bernhard Pfaff
 }
+\concept{bitcoind functions}

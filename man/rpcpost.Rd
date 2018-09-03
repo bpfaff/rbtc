@@ -4,10 +4,10 @@
 \alias{rpcpost}
 \title{HTTP post of RPC-JSON}
 \usage{
-rpcpost(obj, api, plist = list())
+rpcpost(con, api, plist = list())
 }
 \arguments{
-\item{obj}{\code{CONRPC} object, returned from \code{conrpc()}.}
+\item{con}{\code{CONRPC} object, returned from \code{conrpc()}.}
 
 \item{api}{\code{character} the name of the RPC function.}
 
@@ -29,3 +29,4 @@ Other bitcoind functions: \code{\link{ANSRPC-class}},
 \author{
 Bernhard Pfaff
 }
+\concept{bitcoind functions}

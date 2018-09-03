@@ -33,3 +33,4 @@ Other EllipticCurve: \code{\link{ECPOINT-class}},
 \author{
 Bernhard Pfaff
 }
+\concept{EllipticCurve}

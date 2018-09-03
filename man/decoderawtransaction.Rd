@@ -4,10 +4,10 @@
 \alias{decoderawtransaction}
 \title{RPC-JSON API: decoderawtransaction}
 \usage{
-decoderawtransaction(obj, hexstring)
+decoderawtransaction(con, hexstring)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{hexstring}{\code{character}, the transaction hex string.}
 }
@@ -28,3 +28,4 @@ Other RawTransactions RPCs: \code{\link{getrawtransaction}}
 \author{
 Bernhard Pfaff
 }
+\concept{RawTransactions RPCs}

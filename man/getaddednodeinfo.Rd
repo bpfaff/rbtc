@@ -4,10 +4,10 @@
 \alias{getaddednodeinfo}
 \title{RPC-JSON API: getaddednodeinfo}
 \usage{
-getaddednodeinfo(obj, node = NULL)
+getaddednodeinfo(con, node = NULL)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{node}{\code{character} the node (see \code{getpeerinfo()}
 for nodes).}
@@ -35,3 +35,4 @@ Other Network RPCs: \code{\link{addnode}},
 \author{
 Bernhard Pfaff
 }
+\concept{Network RPCs}

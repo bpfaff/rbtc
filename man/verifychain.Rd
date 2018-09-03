@@ -4,10 +4,10 @@
 \alias{verifychain}
 \title{RPC-JSON API: verifychain}
 \usage{
-verifychain(obj, checklevel = NULL, nblocks = NULL)
+verifychain(con, checklevel = NULL, nblocks = NULL)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{checklevel}{\code{integer} (optional, 0-4, default=3),
 how thorough the block verification is.a json array of txids to filter.}
@@ -26,7 +26,8 @@ Verifies blockchain database.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -46,3 +47,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

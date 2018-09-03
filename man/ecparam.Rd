@@ -40,3 +40,4 @@ Other EllipticCurve: \code{\link{ECPARAM-class}},
 \author{
 Bernhard Pfaff
 }
+\concept{EllipticCurve}

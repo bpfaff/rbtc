@@ -4,10 +4,10 @@
 \alias{getblock}
 \title{RPC-JSON API: getblock}
 \usage{
-getblock(obj, blockhash, verbosity = c("l1", "l0", "l2"))
+getblock(con, blockhash, verbosity = c("l1", "l0", "l2"))
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{blockhash}{\code{character}, the block hash.}
 
@@ -34,7 +34,8 @@ information about each transaction.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getchaintips}},
@@ -53,3 +54,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

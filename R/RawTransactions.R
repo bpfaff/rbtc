@@ -1,5 +1,5 @@
 #' RPC-JSON API: getrawtransaction
-#' 
+#'
 #' Returns the raw transaction data.
 #'
 #' @section: Details
@@ -10,9 +10,9 @@
 #' If verbose is 'false' or omitted, returns a string that is serialized,
 #' hex-encoded data for 'txid'.
 #'
-#' @param obj object of class \code{CONRPC}.
+#' @param con object of class \code{CONRPC}.
 #' @param txid \code{character}, the transaction id.
-#' @param verbose \code{logical}, type of output. 
+#' @param verbose \code{logical}, type of output.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family RawTransactions RPCs
@@ -23,21 +23,18 @@
 #' @aliases getrawtransaction
 #' @rdname getrawtransaction
 #' @export
-getrawtransaction <- function(obj, txid, verbose = FALSE){
+getrawtransaction <- function(con, txid, verbose = FALSE){
     txid <- as.character(txid)
     verb <- ifelse(verbose, 1L, 0L)
     pl <- list(txid = txid, verbose = verb)
-    rpcpost(obj, "getrawtransaction", pl)
+    rpcpost(con, "getrawtransaction", pl)
 }
-
-
-
 #' RPC-JSON API: decoderawtransaction
-#' 
+#'
 #' Return a JSON object representing the serialized,
 #' hex-encoded transaction.
 #'
-#' @param obj object of class \code{CONRPC}.
+#' @param con object of class \code{CONRPC}.
 #' @param hexstring \code{character}, the transaction hex string.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
@@ -49,8 +46,8 @@ getrawtransaction <- function(obj, txid, verbose = FALSE){
 #' @aliases decoderawtransaction
 #' @rdname decoderawtransaction
 #' @export
-decoderawtransaction <- function(obj, hexstring){
+decoderawtransaction <- function(con, hexstring){
     hexstring <- as.character(hexstring)
     pl <- list(hexstring = hexstring)
-    rpcpost(obj, "decoderawtransaction", pl)
+    rpcpost(con, "decoderawtransaction", pl)
 }

@@ -4,10 +4,10 @@
 \alias{getmempoolentry}
 \title{RPC-JSON API: getmempoolentry}
 \usage{
-getmempoolentry(obj, txid)
+getmempoolentry(con, txid)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{txid}{\code{character}, the transaction id (must be in mempool).}
 }
@@ -22,7 +22,8 @@ Returns mempool data for given transaction.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -41,3 +42,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

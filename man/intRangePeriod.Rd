@@ -26,10 +26,16 @@ intMinDay(d1)
 intMaxDay(d2)
 }
 \seealso{
-Other UtilityFuncs: \code{\link{date2int}},
+Other UtilityFuncs: \code{\link{blockattime}},
+  \code{\link{blockstats}}, \code{\link{date2int}},
   \code{\link{int2date}}, \code{\link{intMaxDay}},
-  \code{\link{intMinDay}}, \code{\link{intRangeDay}}
+  \code{\link{intMinDay}}, \code{\link{intRangeDay}},
+  \code{\link{timeofblock}}, \code{\link{txfee}},
+  \code{\link{txids}}, \code{\link{txinids}},
+  \code{\link{txstats}}, \code{\link{utxoage}},
+  \code{\link{utxovalue}}
 }
 \author{
 Bernhard Pfaff
 }
+\concept{UtilityFuncs}

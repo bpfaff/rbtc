@@ -4,10 +4,10 @@
 \alias{verifytxoutproof}
 \title{RPC-JSON API: verifytxoutproof}
 \usage{
-verifytxoutproof(obj, proof)
+verifytxoutproof(con, proof)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{proof}{\code{character} the hex-encoded proof generated
 by gettxoutproof.}
@@ -25,7 +25,8 @@ RPC error if the block is not in our best chain.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -44,3 +45,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

@@ -24,10 +24,16 @@ int2date(ts)
 \url{https://en.bitcoin.it/wiki/Block_timestamp}
 }
 \seealso{
-Other UtilityFuncs: \code{\link{date2int}},
+Other UtilityFuncs: \code{\link{blockattime}},
+  \code{\link{blockstats}}, \code{\link{date2int}},
   \code{\link{intMaxDay}}, \code{\link{intMinDay}},
-  \code{\link{intRangeDay}}, \code{\link{intRangePeriod}}
+  \code{\link{intRangeDay}}, \code{\link{intRangePeriod}},
+  \code{\link{timeofblock}}, \code{\link{txfee}},
+  \code{\link{txids}}, \code{\link{txinids}},
+  \code{\link{txstats}}, \code{\link{utxoage}},
+  \code{\link{utxovalue}}
 }
 \author{
 Bernhard Pfaff
 }
+\concept{UtilityFuncs}

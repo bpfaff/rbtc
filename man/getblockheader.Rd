@@ -4,10 +4,10 @@
 \alias{getblockheader}
 \title{RPC-JSON API: getblockheader}
 \usage{
-getblockheader(obj, hash, verbose = TRUE)
+getblockheader(con, hash, verbose = TRUE)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{hash}{\code{character} the block hash.}
 
@@ -32,7 +32,8 @@ returns an Object with information about blockheader <hash>.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblock}}, \code{\link{getchaintips}},
@@ -51,3 +52,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

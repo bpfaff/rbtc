@@ -4,10 +4,10 @@
 \alias{getmempoolancestors}
 \title{RPC-JSON API: getmempoolancestors}
 \usage{
-getmempoolancestors(obj, txid, verbose = FALSE)
+getmempoolancestors(con, txid, verbose = FALSE)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{txid}{\code{character}, the transaction id (must be in mempool).}
 
@@ -25,7 +25,8 @@ If txid is in the mempool, returns all in-mempool ancestors.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -44,3 +45,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

@@ -4,10 +4,10 @@
 \alias{getmempoolinfo}
 \title{RPC-JSON API: getmempoolinfo}
 \usage{
-getmempoolinfo(obj)
+getmempoolinfo(con)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 }
 \value{
 A S4-object of class \code{ANSRPC}.
@@ -20,7 +20,8 @@ Returns details on the active state of the TX memory pool.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -39,3 +40,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

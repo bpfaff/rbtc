@@ -4,10 +4,10 @@
 \alias{disconnectnode}
 \title{RPC-JSON API: disconnectnode}
 \usage{
-disconnectnode(obj, address = NULL, nodeid = NULL)
+disconnectnode(con, address = NULL, nodeid = NULL)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{address}{\code{character} the IP address/port
 of the node.}
@@ -39,3 +39,4 @@ Other Network RPCs: \code{\link{addnode}},
 \author{
 Bernhard Pfaff
 }
+\concept{Network RPCs}

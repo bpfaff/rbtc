@@ -1,8 +1,8 @@
 #' RPC-JSON API: getpeerinfo
-#' 
+#'
 #' Returns data about each connected network node as a json array of objects.
 #'
-#' @param obj object of class \code{CONRPC}.
+#' @param con object of class \code{CONRPC}.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
@@ -10,17 +10,17 @@
 #' @references \url{https://bitcoin.org/en/developer-reference#getpeerinfo},
 #' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 #' @name getpeerinfo
-#' @aliases getpeerinfo 
+#' @aliases getpeerinfo
 #' @rdname getpeerinfo
 #' @export
-getpeerinfo <- function(obj){
-    rpcpost(obj, "getpeerinfo")
+getpeerinfo <- function(con){
+    rpcpost(con, "getpeerinfo")
 }
 #' RPC-JSON API: getnetworkinfo
-#' 
+#'
 #' Returns an object containing various state info regarding P2P networking.
 #'
-#' @param obj object of class \code{CONRPC}.
+#' @param con object of class \code{CONRPC}.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
@@ -28,20 +28,20 @@ getpeerinfo <- function(obj){
 #' @references \url{https://bitcoin.org/en/developer-reference#getnetworkinfo},
 #' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 #' @name getnetworkinfo
-#' @aliases getnetworkinfo 
+#' @aliases getnetworkinfo
 #' @rdname getnetworkinfo
 #' @export
-getnetworkinfo <- function(obj){
-    rpcpost(obj, "getnetworkinfo")
+getnetworkinfo <- function(con){
+    rpcpost(con, "getnetworkinfo")
 }
 #' RPC-JSON API: ping
-#' 
+#'
 #' Requests that a ping be sent to all other nodes, to measure ping time.
 #' Results provided in getpeerinfo, pingtime and pingwait fields are
 #' decimal seconds. Ping command is handled in queue with all other commands,
 #' so it measures processing backlog, not just network ping.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
@@ -49,18 +49,18 @@ getnetworkinfo <- function(obj){
 #' @references \url{https://bitcoin.org/en/developer-reference#ping},
 #' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 #' @name ping
-#' @aliases ping 
+#' @aliases ping
 #' @rdname ping
 #' @export
-ping <- function(obj){
-    rpcpost(obj, "ping")
+ping <- function(con){
+    rpcpost(con, "ping")
 }
 #' RPC-JSON API: getnettotals
-#' 
+#'
 #' Returns information about network traffic, including bytes in,
 #' bytes out, and current time.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
@@ -68,17 +68,17 @@ ping <- function(obj){
 #' @references \url{https://bitcoin.org/en/developer-reference#getnettotals},
 #' \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 #' @name getnettotals
-#' @aliases getnettotals 
+#' @aliases getnettotals
 #' @rdname getnettotals
 #' @export
-getnettotals <- function(obj){
-    rpcpost(obj, "getnettotals")
+getnettotals <- function(con){
+    rpcpost(con, "getnettotals")
 }
 #' RPC-JSON API: getconnectioncount
-#' 
+#'
 #' Returns the number of connections to other nodes.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
@@ -90,16 +90,16 @@ getnettotals <- function(obj){
 #' @aliases getconnectioncount
 #' @rdname getconnectioncount
 #' @export
-getconnectioncount <- function(obj){
-    rpcpost(obj, "getconnectioncount")
+getconnectioncount <- function(con){
+    rpcpost(con, "getconnectioncount")
 }
 #' RPC-JSON API: setnetworkactive
-#' 
+#'
 #' Disable/enable all p2p network activity.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #' @param state \code{logical} the network state.
-#' 
+#'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
 #' @author Bernhard Pfaff
@@ -110,15 +110,15 @@ getconnectioncount <- function(obj){
 #' @aliases setnetworkactive
 #' @rdname setnetworkactive
 #' @export
-setnetworkactive <- function(obj, state = TRUE){
+setnetworkactive <- function(con, state = TRUE){
     pl <- list(state = state)
-    rpcpost(obj, "setnetworkactive", pl)
+    rpcpost(con, "setnetworkactive", pl)
 }
 #' RPC-JSON API: listbanned
-#' 
+#'
 #' List all banned IPs/Subnets.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
@@ -130,20 +130,20 @@ setnetworkactive <- function(obj, state = TRUE){
 #' @aliases listbanned
 #' @rdname listbanned
 #' @export
-listbanned <- function(obj){
-    rpcpost(obj, "listbanned")
+listbanned <- function(con){
+    rpcpost(con, "listbanned")
 }
 #' RPC-JSON API: addnode
-#' 
+#'
 #' Attempts to add or remove a node from the addnode list.
 #' Or try a connection to a node once.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #' @param node \code{character} the node (see \code{getpeerinfo()} for nodes).
 #' @param command \code{character} 'add' to add a node to the list,
 #' 'remove' to remove a node from the list, 'onetry' to try a connection
 #' to the node once.
-#' 
+#'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
 #' @author Bernhard Pfaff
@@ -154,17 +154,17 @@ listbanned <- function(obj){
 #' @aliases addnode
 #' @rdname addnode
 #' @export
-addnode <- function(obj, node, command = c("add", "remove", "onetry")){
+addnode <- function(con, node, command = c("add", "remove", "onetry")){
     node <- as.character(node)
     command <- match.arg(command)
     pl <- list(node = node, command = command)
-    rpcpost(obj, "addnode", pl)
+    rpcpost(con, "addnode", pl)
 }
 #' RPC-JSON API: clearbanned
-#' 
+#'
 #' Clear all banned IPs.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
@@ -176,19 +176,19 @@ addnode <- function(obj, node, command = c("add", "remove", "onetry")){
 #' @aliases clearbanned
 #' @rdname clearbanned
 #' @export
-clearbanned <- function(obj){
-    rpcpost(obj, "clearbanned")
+clearbanned <- function(con){
+    rpcpost(con, "clearbanned")
 }
 #' RPC-JSON API: getaddednodeinfo
 #'
 #' Returns information about the given added node,
 #' or all added nodes (note that onetry addnodes
 #' are not listed here)
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #' @param node \code{character} the node (see \code{getpeerinfo()}
 #' for nodes).
-#' 
+#'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
 #' @author Bernhard Pfaff
@@ -199,13 +199,13 @@ clearbanned <- function(obj){
 #' @aliases getaddednodeinfo
 #' @rdname getaddednodeinfo
 #' @export
-getaddednodeinfo <- function(obj, node = NULL){
+getaddednodeinfo <- function(con, node = NULL){
     if (is.null(node)){
-        return(rpcpost(obj, "getaddednodeinfo"))
+        return(rpcpost(con, "getaddednodeinfo"))
     } else {
         node <- as.character(node)[1]
         pl <- list(node = node)
-        return(rpcpost(obj, "getaddednodeinfo", pl))
+        return(rpcpost(con, "getaddednodeinfo", pl))
     }
 }
 #' RPC-JSON API: disconnectnode
@@ -213,13 +213,13 @@ getaddednodeinfo <- function(obj, node = NULL){
 #' Immediately disconnects from the specified peer node.
 #' Strictly one out of \code{address} and \code{nodeid} can be
 #' provided to identify the node.
-#' 
-#' @param obj object of class \code{CONRPC}.
+#'
+#' @param con object of class \code{CONRPC}.
 #' @param address \code{character} the IP address/port
 #' of the node.
 #' @param nodeid \code{character} The node ID
 #' (see \code{getpeerinfo()} for node IDs).
-#' 
+#'
 #' @return A S4-object of class \code{ANSRPC}.
 #' @family Network RPCs
 #' @author Bernhard Pfaff
@@ -230,7 +230,7 @@ getaddednodeinfo <- function(obj, node = NULL){
 #' @aliases disconnectnode
 #' @rdname disconnectnode
 #' @export
-disconnectnode <- function(obj, address = NULL, nodeid = NULL){
+disconnectnode <- function(con, address = NULL, nodeid = NULL){
     if (is.null(address) & is.null(nodeid)){
         stop("Either 'address' or 'nodeid' must be provided.\n")
     }
@@ -247,5 +247,5 @@ disconnectnode <- function(obj, address = NULL, nodeid = NULL){
         address <- as.character(address)
         pl <- list(address = address)
     }
-    rpcpost(obj, "disconnectnode", pl)
+    rpcpost(con, "disconnectnode", pl)
 }

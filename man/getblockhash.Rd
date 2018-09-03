@@ -4,10 +4,10 @@
 \alias{getblockhash}
 \title{RPC-JSON API: getblockhash}
 \usage{
-getblockhash(obj, height)
+getblockhash(con, height)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{height}{\code{integer} the height index.}
 }
@@ -22,7 +22,8 @@ Returns hash of block in best-block-chain at height provided.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -42,3 +43,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

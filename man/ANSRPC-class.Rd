@@ -31,3 +31,4 @@ Other bitcoind functions: \code{\link{CONRPC-class}},
   \code{\link{rpcpost}}, \code{\link{startbtc}},
   \code{\link{stopbtc}}
 }
+\concept{bitcoind functions}

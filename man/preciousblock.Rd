@@ -4,10 +4,10 @@
 \alias{preciousblock}
 \title{RPC-JSON API: preciousblock}
 \usage{
-preciousblock(obj, blockhash)
+preciousblock(con, blockhash)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{blockhash}{\code{character}, the hash of the block to mark as precious.}
 }
@@ -24,7 +24,8 @@ are not retained across restarts.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -43,3 +44,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

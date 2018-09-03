@@ -40,3 +40,4 @@ Other BtcAdresses: \code{\link{BTCADR-class}},
 \author{
 Bernhard Pfaff
 }
+\concept{BtcAdresses}

@@ -4,10 +4,10 @@
 \alias{getinfo}
 \title{RPC-JSON API: getinfo}
 \usage{
-getinfo(obj)
+getinfo(con)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 }
 \value{
 A S4-object of class \code{ANSRPC}.
@@ -31,3 +31,4 @@ Other Control RPCs: \code{\link{gethelp}},
 \author{
 Bernhard Pfaff
 }
+\concept{Control RPCs}

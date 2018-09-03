@@ -4,10 +4,10 @@
 \alias{setnetworkactive}
 \title{RPC-JSON API: setnetworkactive}
 \usage{
-setnetworkactive(obj, state = TRUE)
+setnetworkactive(con, state = TRUE)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{state}{\code{logical} the network state.}
 }
@@ -33,3 +33,4 @@ Other Network RPCs: \code{\link{addnode}},
 \author{
 Bernhard Pfaff
 }
+\concept{Network RPCs}

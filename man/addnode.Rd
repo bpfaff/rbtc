@@ -4,10 +4,10 @@
 \alias{addnode}
 \title{RPC-JSON API: addnode}
 \usage{
-addnode(obj, node, command = c("add", "remove", "onetry"))
+addnode(con, node, command = c("add", "remove", "onetry"))
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{node}{\code{character} the node (see \code{getpeerinfo()} for nodes).}
 
@@ -38,3 +38,4 @@ Other Network RPCs: \code{\link{clearbanned}},
 \author{
 Bernhard Pfaff
 }
+\concept{Network RPCs}

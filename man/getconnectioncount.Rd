@@ -4,10 +4,10 @@
 \alias{getconnectioncount}
 \title{RPC-JSON API: getconnectioncount}
 \usage{
-getconnectioncount(obj)
+getconnectioncount(con)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 }
 \value{
 A S4-object of class \code{ANSRPC}.
@@ -30,3 +30,4 @@ Other Network RPCs: \code{\link{addnode}},
 \author{
 Bernhard Pfaff
 }
+\concept{Network RPCs}

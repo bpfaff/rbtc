@@ -10,10 +10,10 @@
 #' @author Bernhard Pfaff
 #' @family bitcoind functions
 #' @name conrpc
-#' @aliases conrpc 
+#' @aliases conrpc
 #' @rdname conrpc
 #' @export
-#' 
+#'
 conrpc <- function(conf.file){
     con <- file(conf.file, open = "r", blocking = FALSE)
     bconf <- readLines(con)
@@ -68,10 +68,10 @@ conrpc <- function(conf.file){
 #' @return \code{NULL}
 #' @family bitcoind functions
 #' @name startbtc
-#' @aliases startbtc 
+#' @aliases startbtc
 #' @rdname startbtc
 #' @export
-#' 
+#'
 startbtc <- function(confbtc){
     stopifnot(class(confbtc) == "CONRPC")
     rpcuse <- slot(confbtc, "rpcuse")
@@ -99,12 +99,12 @@ startbtc <- function(confbtc){
 #' R function \code{system()}.
 #'
 #' @param confbtc \code{CONRPC} object, returned from \code{conrpc()}.
-#' 
+#'
 #' @return NULL
 #' @author Bernhard Pfaff
 #' @family bitcoind functions
 #' @name stopbtc
-#' @aliases stopbtc 
+#' @aliases stopbtc
 #' @rdname stopbtc
 #' @export
 #'
@@ -127,25 +127,25 @@ stopbtc <- function(confbtc){
 #'
 #' This function executes an RPC-JSON post.
 #'
-#' @param obj \code{CONRPC} object, returned from \code{conrpc()}.
+#' @param con \code{CONRPC} object, returned from \code{conrpc()}.
 #' @param api \code{character} the name of the RPC function.
 #' @param plist \code{list} a named list object of the parameters for \code{api}
-#' 
+#'
 #' @return A \code{list} object, coerced JSON answer from RPC.
 #' @author Bernhard Pfaff
 #' @family bitcoind functions
 #' @name rpcpost
-#' @aliases rpcpost 
+#' @aliases rpcpost
 #' @rdname rpcpost
 #' @export
 #'
-rpcpost <- function(obj, api, plist = list()){
-    stopifnot(class(obj) == "CONRPC")
+rpcpost <- function(con, api, plist = list()){
+    stopifnot(class(con) == "CONRPC")
     api <- as.character(api)
     pid <- paste("rbtc", api, sep = "-")
-    ans <- POST(slot(obj, "url"),
-                authenticate(user = slot(obj, "rpcuse"),
-                             password = slot(obj, "rpcpwd"),
+    ans <- POST(slot(con, "url"),
+                authenticate(user = slot(con, "rpcuse"),
+                             password = slot(con, "rpcpwd"),
                              type = "basic"),
                 body = list(jsonrpc = "1.0",
                             id = pid,

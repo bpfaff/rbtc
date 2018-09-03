@@ -4,10 +4,10 @@
 \alias{getchaintxstats}
 \title{RPC-JSON API: getchaintxstats}
 \usage{
-getchaintxstats(obj, nblocks = NULL, blockhash = NULL)
+getchaintxstats(con, nblocks = NULL, blockhash = NULL)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{nblocks}{\code{integer} optional, size of the window in
 number of blocks (default: one month).}
@@ -27,7 +27,8 @@ rate of transactions in the chain.
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -45,3 +46,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

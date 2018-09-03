@@ -4,10 +4,10 @@
 \alias{gettxoutproof}
 \title{RPC-JSON API: gettxoutproof}
 \usage{
-gettxoutproof(obj, txids, blockhash = NULL)
+gettxoutproof(con, txids, blockhash = NULL)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{txids}{\code{charcater} a json array of txids to filter.}
 
@@ -32,7 +32,8 @@ option or specify the block in which the transaction is included manually
 \url{https://bitcoin.org/en/developer-reference#remote-procedure-calls-rpcs}
 }
 \seealso{
-Other Blockchain RPCs: \code{\link{getbestblockhash}},
+Other Blockchain RPCs: \code{\link{decodescript}},
+  \code{\link{getbestblockhash}},
   \code{\link{getblockchaininfo}},
   \code{\link{getblockcount}}, \code{\link{getblockhash}},
   \code{\link{getblockheader}}, \code{\link{getblock}},
@@ -52,3 +53,4 @@ Other Blockchain RPCs: \code{\link{getbestblockhash}},
 \author{
 Bernhard Pfaff
 }
+\concept{Blockchain RPCs}

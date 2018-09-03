@@ -4,10 +4,10 @@
 \alias{getrawtransaction}
 \title{RPC-JSON API: getrawtransaction}
 \usage{
-getrawtransaction(obj, txid, verbose = FALSE)
+getrawtransaction(con, txid, verbose = FALSE)
 }
 \arguments{
-\item{obj}{object of class \code{CONRPC}.}
+\item{con}{object of class \code{CONRPC}.}
 
 \item{txid}{\code{character}, the transaction id.}
 
@@ -39,3 +39,4 @@ Other RawTransactions RPCs: \code{\link{decoderawtransaction}}
 \author{
 Bernhard Pfaff
 }
+\concept{RawTransactions RPCs}
