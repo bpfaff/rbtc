@@ -21,13 +21,14 @@ d <- "2017-03-15"
 date2int(d)
 }
 \seealso{
-Other UtilityFuncs: \code{\link{blockattime}},
-  \code{\link{blockstats}}, \code{\link{int2date}},
-  \code{\link{intMaxDay}}, \code{\link{intMinDay}},
-  \code{\link{intRangeDay}}, \code{\link{intRangePeriod}},
-  \code{\link{timeofblock}}, \code{\link{txfee}},
-  \code{\link{txids}}, \code{\link{txinids}},
-  \code{\link{txstats}}, \code{\link{utxoage}},
+Other UtilityFuncs: \code{\link{bkfee}},
+  \code{\link{blockattime}}, \code{\link{blockstats}},
+  \code{\link{int2date}}, \code{\link{intMaxDay}},
+  \code{\link{intMinDay}}, \code{\link{intRangeDay}},
+  \code{\link{intRangePeriod}}, \code{\link{timeofblock}},
+  \code{\link{txfee}}, \code{\link{txids}},
+  \code{\link{txinids}}, \code{\link{txstats}},
+  \code{\link{utxoage}}, \code{\link{utxotype}},
   \code{\link{utxovalue}}
 }
 \author{

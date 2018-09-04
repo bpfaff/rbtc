@@ -1,5 +1,5 @@
 #' Creation of a private key
-#' 
+#'
 #' Returns a random 256-bit private key in hex notation.
 #'
 #' @return \code{character}.
@@ -8,19 +8,21 @@
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address}
 #' @name createPrivateKey
-#' @aliases createPrivateKey 
+#' @aliases createPrivateKey
 #' @rdname createPrivateKey
 #' @examples
 #' createPrivateKey()
 #' @export
 createPrivateKey <- function(){
+    warning(paste0("\nFor exemplary purposes, only.\n",
+                   "Use at your own risk!\n"))
     s <- "0123456789ABCDEF"
     idx <- sample(1:16, 64, replace = TRUE)
     pk <- sapply(idx, function(x) substr(s, x, x))
     pk <- paste(pk, collapse = "")
     pk
 }
-#' Create WIF from a private key 
+#' Create WIF from a private key
 #'
 #' Returns the corresponding WIF key from a private key
 #'
@@ -29,19 +31,21 @@ createPrivateKey <- function(){
 #' to the mainnet or testnet.
 #'
 #' @return \code{character}, the WIF key
-#' 
+#'
 #' @family BtcAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address}
 #' @name PrivKey2Wif
-#' @aliases PrivKey2Wif 
+#' @aliases PrivKey2Wif
 #' @rdname PrivKey2Wif
 #' @examples
 #' pk <- createPrivateKey()
 #' PrivKey2Wif(pk)
 #' @export
 PrivKey2Wif <- function(privkey, mainnet = TRUE){
+    warning(paste0("\nFor exemplary purposes, only.\n",
+                   "Use at your own risk!\n"))
     if (mainnet){
         pke <- paste0("80", privkey)
     } else {
@@ -53,20 +57,20 @@ PrivKey2Wif <- function(privkey, mainnet = TRUE){
     privkeyextcs <- c(privkeyext, checksum)
     base58CheckEncode(privkeyextcs)
 }
-#' Create private key from WIF 
+#' Create private key from WIF
 #'
 #' Returns the corresponding private key from a WIF key.
 #'
 #' @param wif \code{character}, a WIF key.
 #'
 #' @return \code{character}, the corresponding private key.
-#' 
+#'
 #' @family BtcAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address}
 #' @name Wif2PrivKey
-#' @aliases Wif2PrivKey 
+#' @aliases Wif2PrivKey
 #' @rdname Wif2PrivKey
 #' @examples
 #' pk1 <- createPrivateKey()
@@ -75,6 +79,8 @@ PrivKey2Wif <- function(privkey, mainnet = TRUE){
 #' identical(pk1, pk2)
 #' @export
 Wif2PrivKey <- function(wif){
+    warning(paste0("\nFor exemplary purposes, only.\n",
+                   "Use at your own risk!\n"))
     fc <- substr(wif, 1, 1)
     if (!(fc %in% c("5", "9"))){
         msg <- paste0("First character in WIF does neither\n",
@@ -104,10 +110,12 @@ Wif2PrivKey <- function(wif){
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name PrivKey2PubKey
-#' @aliases PrivKey2PubKey 
+#' @aliases PrivKey2PubKey
 #' @rdname PrivKey2PubKey
 #' @export
 PrivKey2PubKey <- function(privkey, mainnet = TRUE){
+    warning(paste0("\nFor exemplary purposes, only.\n",
+                   "Use at your own risk!\n"))
     pk <- paste0("0x", privkey, collapse = "")
     pk <- gmp::as.bigz(pk)
     p <- "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F"
@@ -137,10 +145,12 @@ PrivKey2PubKey <- function(privkey, mainnet = TRUE){
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name PubKey2PubHash
-#' @aliases PubKey2PubHash 
+#' @aliases PubKey2PubHash
 #' @rdname PubKey2PubHash
 #' @export
 PubKey2PubHash <- function(pubkey, mainnet = TRUE){
+    warning(paste0("\nFor exemplary purposes, only.\n",
+                   "Use at your own risk!\n"))
     pubkey160 <- hash160(decodeHex(pubkey))
     checksum <- pubkey160[1:4]
     if (mainnet){
@@ -165,10 +175,12 @@ PubKey2PubHash <- function(pubkey, mainnet = TRUE){
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name PubHash2BtcAdr
-#' @aliases PubHash2BtcAdr 
+#' @aliases PubHash2BtcAdr
 #' @rdname PubHash2BtcAdr
 #' @export
 PubHash2BtcAdr <- function(pubhash){
+    warning(paste0("\nFor exemplary purposes, only.\n",
+                   "Use at your own risk!\n"))
     pubhashhex <- decodeHex(pubhash)
     base58CheckEncode(pubhashhex)
 }
@@ -184,15 +196,18 @@ PubHash2BtcAdr <- function(pubhash){
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name createBtcAdr
-#' @aliases createBtcAdr 
+#' @aliases createBtcAdr
 #' @rdname createBtcAdr
 #' @export
-createBtcAdr <- function(privkey, mainnet = TRUE){
-    pk <- sapply(seq(1, nchar(privkey), by = 2),
-                 function(x) substr(privkey, x, x + 1))
-    if (mainnet){
+createBtcAdr <- function (privkey, mainnet = TRUE) {
+    warning(paste0("\nFor exemplary purposes, only.\n",
+                   "Use at your own risk!\n"))
+    pk <- sapply(seq(1, nchar(privkey), by = 2), function(x) substr(privkey,
+        x, x + 1))
+    if (mainnet) {
         pke <- c("80", pk)
-    } else {
+    }
+    else {
         pke <- c("ef", pk)
     }
     pke <- as.raw(strtoi(pke, base = 16L))
@@ -202,37 +217,34 @@ createBtcAdr <- function(privkey, mainnet = TRUE){
     wif <- base58CheckEncode(pkecs)
     pubkey <- PrivKey2PubKey(privkey)
     pub160 <- hash160(decodeHex(pubkey))
-    cs <- pub160[1:4]
-    if (mainnet){
+    if (mainnet) {
         pub160e <- c(decodeHex("00"), pub160)
-    } else {
+    }
+    else {
         pub160e <- c(decodeHex("6f"), pub160)
     }
+    cs <- hash256(pub160e)[1:4]
     pubhash <- c(pub160e, cs)
     btcadr <- base58CheckEncode(pubhash)
-    new("BTCADR",
-        privkey = privkey,
-        wif = wif,
-        pubkey = pubkey,
-        pubhash = toupper(paste(pubhash, collapse = "")),
-        btcadr = btcadr,
+    new("BTCADR", privkey = privkey, wif = wif, pubkey = pubkey,
+        pubhash = toupper(paste(pubhash, collapse = "")), btcadr = btcadr,
         mainnet = mainnet)
 }
 #' Decoding of a hex string
-#' 
+#'
 #' This function converts a hex string,, whereby the string must not
 #' contain the \code{0x} prefix, to a \code{list} object with the associated
 #' integers as its elements.
 #'
 #' @param s \code{character}, the hex string.
-#' 
+#'
 #' @return \code{list}
 #' @family BtcAdresses
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address}
 #' @name decodeHex
-#' @aliases decodeHex 
+#' @aliases decodeHex
 #' @rdname decodeHex
 #' @examples
 #' pk <- createPrivateKey()
@@ -257,7 +269,7 @@ decodeHex <- function(s){
 #' @references \url{https://en.bitcoin.it/wiki/Wallet_import_format},\cr
 #' \url{https://en.bitcoin.it/wiki/Address}
 #' @name concatHex
-#' @aliases concatHex 
+#' @aliases concatHex
 #' @rdname concatHex
 #' @examples
 #' h1 <- "80"
@@ -287,7 +299,7 @@ concatHex <- function(hex1, hex2){
 #' \url{https://en.bitcoin.it/wiki/Address},\cr
 #' \url{https://en.bitcoin.it/wiki/Base58Check_encoding}
 #' @name base58CheckEncode
-#' @aliases base58CheckEncode 
+#' @aliases base58CheckEncode
 #' @rdname base58CheckEncode
 #' @export
 base58CheckEncode <- function(x){
@@ -323,7 +335,7 @@ base58CheckEncode <- function(x){
 #' \url{https://en.bitcoin.it/wiki/Address},\cr
 #' \url{https://en.bitcoin.it/wiki/Base58Check_encoding}
 #' @name base58CheckDecode
-#' @aliases base58CheckDecode 
+#' @aliases base58CheckDecode
 #' @rdname base58CheckDecode
 #' @export
 base58CheckDecode <- function(x){
@@ -346,7 +358,7 @@ base58CheckDecode <- function(x){
     }
     decodeHex(shex)
 }
-#' BTC hash256 
+#' BTC hash256
 #'
 #' This function returns the hash by applying the \code{sha256} hashing
 #' algorithm twice to a \code{raw} object.
@@ -358,7 +370,7 @@ base58CheckDecode <- function(x){
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name hash256
-#' @aliases hash256 
+#' @aliases hash256
 #' @rdname hash256
 #' @export
 hash256 <- function(d){
@@ -375,10 +387,10 @@ hash256 <- function(d){
     d2 <- decodeHex(paste(d2, collapse = ":"))
     d2
 }
-#' BTC hash160 
+#' BTC hash160
 #'
 #' This function returns the hash by applying the \code{sha256} hashing
-#' first and then to the resulting hash the \code{ripemd160} algorithm. 
+#' first and then to the resulting hash the \code{ripemd160} algorithm.
 #'
 #' @param d \code{raw}, vector.
 #'
@@ -388,7 +400,7 @@ hash256 <- function(d){
 #' @author Bernhard Pfaff
 #' @references \url{https://en.bitcoin.it/wiki/Address}
 #' @name hash160
-#' @aliases hash160 
+#' @aliases hash160
 #' @rdname hash160
 #' @export
 hash160 <- function(d){

@@ -230,6 +230,30 @@ utxovalue <- function(con, txid){
     )
     ans
 }
+#' Retrieving types of UTXOs
+#'
+#' This function returns the types of the UTXO(s) in a transaction.
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param txid \code{character}, the id of the transaction.
+#'
+#' @return \code{character}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name utxotype
+#' @rdname utxotype
+#' @export
+utxotype <- function(con, txid){
+    txraw <- slot(getrawtransaction(con, txid),
+                  "result")
+    txdec <- slot(decoderawtransaction(con, txraw),
+                  "result")
+    vout <- txdec[["vout"]]
+    ans <- unlist(
+        lapply(vout, function(x) x[["type"]])
+    )
+    ans
+}
 #' Age of UTXOs
 #'
 #' This function returns a \code{difftime} object measuring the elapsed time(s)
@@ -291,6 +315,33 @@ txfee <- function(con, txid){
         vali <- vali + val
     }
     ans <- vali - valo
+    ans
+}
+
+#' Compute fee in a block
+#'
+#' This function returns the fee of the coinbase transaction.
+#' Hereby, the mining reward has been deducted.
+#' Initially, the mining reward was 50 BTC and is halved every
+#' 210,000 blocks.
+#'
+#' @param con \code{CONRPC}, configuration object.
+#' @param height \code{integer}, the height of the block.
+#'
+#' @return \code{numeric}
+#' @family UtilityFuncs
+#' @author Bernhard Pfaff
+#' @name bkfee
+#' @rdname bkfee
+#' @export
+bkfee <- function(con, height){
+    height <- as.integer(abs(height))
+    cb <- txids(con, height, excoinbase = FALSE)[1]
+    mtot <- utxovalue(con, cb)
+    hf <- ceiling(height / 209999) - 1
+    hf <- 2 ^ hf
+    mrwd <- 50 / hf
+    ans <- mtot - mrwd
     ans
 }
 #' Obtaining statistics of a block

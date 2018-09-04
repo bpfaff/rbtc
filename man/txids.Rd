@@ -21,13 +21,14 @@ should be excluded (default is \code{TRUE}).}
 This function retrieves the transaction IDs in a block.
 }
 \seealso{
-Other UtilityFuncs: \code{\link{blockattime}},
-  \code{\link{blockstats}}, \code{\link{date2int}},
-  \code{\link{int2date}}, \code{\link{intMaxDay}},
-  \code{\link{intMinDay}}, \code{\link{intRangeDay}},
-  \code{\link{intRangePeriod}}, \code{\link{timeofblock}},
-  \code{\link{txfee}}, \code{\link{txinids}},
-  \code{\link{txstats}}, \code{\link{utxoage}},
+Other UtilityFuncs: \code{\link{bkfee}},
+  \code{\link{blockattime}}, \code{\link{blockstats}},
+  \code{\link{date2int}}, \code{\link{int2date}},
+  \code{\link{intMaxDay}}, \code{\link{intMinDay}},
+  \code{\link{intRangeDay}}, \code{\link{intRangePeriod}},
+  \code{\link{timeofblock}}, \code{\link{txfee}},
+  \code{\link{txinids}}, \code{\link{txstats}},
+  \code{\link{utxoage}}, \code{\link{utxotype}},
   \code{\link{utxovalue}}
 }
 \author{

@@ -18,14 +18,15 @@ utxovalue(con, txid)
 This function returns the values of UTXO(s) in a transaction.
 }
 \seealso{
-Other UtilityFuncs: \code{\link{blockattime}},
-  \code{\link{blockstats}}, \code{\link{date2int}},
-  \code{\link{int2date}}, \code{\link{intMaxDay}},
-  \code{\link{intMinDay}}, \code{\link{intRangeDay}},
-  \code{\link{intRangePeriod}}, \code{\link{timeofblock}},
-  \code{\link{txfee}}, \code{\link{txids}},
-  \code{\link{txinids}}, \code{\link{txstats}},
-  \code{\link{utxoage}}
+Other UtilityFuncs: \code{\link{bkfee}},
+  \code{\link{blockattime}}, \code{\link{blockstats}},
+  \code{\link{date2int}}, \code{\link{int2date}},
+  \code{\link{intMaxDay}}, \code{\link{intMinDay}},
+  \code{\link{intRangeDay}}, \code{\link{intRangePeriod}},
+  \code{\link{timeofblock}}, \code{\link{txfee}},
+  \code{\link{txids}}, \code{\link{txinids}},
+  \code{\link{txstats}}, \code{\link{utxoage}},
+  \code{\link{utxotype}}
 }
 \author{
 Bernhard Pfaff
