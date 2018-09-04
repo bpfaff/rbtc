@@ -337,7 +337,7 @@ txfee <- function(con, txid){
 bkfee <- function(con, height){
     height <- as.integer(abs(height))
     cb <- txids(con, height, excoinbase = FALSE)[1]
-    mtot <- utxovalue(con, cb)
+    mtot <- sum(utxovalue(con, cb))  
     hf <- ceiling(height / 209999) - 1
     hf <- 2 ^ hf
     mrwd <- 50 / hf
