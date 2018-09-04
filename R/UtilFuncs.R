@@ -504,6 +504,7 @@ blockattime <- function(con, targetdate){
         if (curdelta > 100){
             approxh1 <- approxh1 + searchdir * floor(curdelta / 10)
             ht <- timeofblock(con, approxh1)
+            searchdir <- sign(as.numeric(dt - ht))
         }
         signtimedelta <- sign(as.numeric(dt - ht))
     }
