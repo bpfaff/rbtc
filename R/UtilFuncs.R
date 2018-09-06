@@ -250,7 +250,9 @@ utxotype <- function(con, txid){
                   "result")
     vout <- txdec[["vout"]]
     ans <- unlist(
-        lapply(vout, function(x) x[["type"]])
+        lapply(vout, function(x){
+            x[["scriptPubKey"]][["type"]]
+        })
     )
     ans
 }

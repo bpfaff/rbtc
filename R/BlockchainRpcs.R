@@ -531,8 +531,14 @@ verifytxoutproof <- function(con, proof){
 #' @aliases decodescript
 #' @rdname decodescript
 #' @export
-decodescript <- function(con, redeem){
+decodescript <- function (con, redeem){
     rs <- as.character(redeem)
-    pl <- list(redeem = rs)
+    if (length(rs) > 1){
+        msg <- paste0("\nLength of 'redeem' greater than one,\n",
+                      "using first element, only.\n")
+        warning(msg)
+        rs <- rs[1]
+    }
+    pl <- list(rs)
     rpcpost(con, "decodescript", pl)
 }

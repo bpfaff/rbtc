@@ -1,6 +1,6 @@
 Package: rbtc
 Title: Bitcoin API
-Version: 0.1-4
+Version: 0.1-5
 Authors@R: person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cre"))
 Description: Implementation of the RPC-JSON API for Bitcoin and utility functions for address creation and content analysis of the blockchain.
 Depends: R (>= 3.4.0)
